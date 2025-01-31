@@ -1,0 +1,426 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="TarikDataInvestigasiDariRendy" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aw="clr-namespace:Alphabet.Workflow;assembly=GetXamlFileNameActivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:xl="clr-namespace:XAS_Custom.Logging;assembly=XAS_Package">
+  <x:Members>
+    <x:Property Name="in_strProjectName" Type="InArgument(x:String)" />
+    <x:Property Name="in_strFileReportBalancing" Type="InArgument(x:String)" />
+    <x:Property Name="in_strNotifNotepad" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>930,5349</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>TarikDataInvestigasiDariRendy_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="62">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Alphabet.Workflow</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>XAS_Custom.Logging</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="58">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>GetXamlFileNameActivity</AssemblyReference>
+      <AssemblyReference>XAS_Package</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="TarikDataInvestigasiDariRendy" sap:VirtualizedContainerService.HintSize="940,5284" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strXamlName" />
+      <Variable x:TypeArguments="x:String" Name="strDate" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtIrRejectRefund" />
+      <Variable x:TypeArguments="x:Boolean" Name="boolNoRecordInvest" />
+      <Variable x:TypeArguments="x:Boolean" Name="boolNoRecordRefund" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtIrInvest" />
+      <Variable x:TypeArguments="x:Int32" Name="intTimeout" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtReportBalancing" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <aw:GetXamlFileName DisplayName="Get xaml file name" sap:VirtualizedContainerService.HintSize="898,22" sap2010:WorkflowViewState.IdRef="GetXamlFileName_1" workflowName="[strXamlName]" />
+    <xl:Write_Log DisplayName="Write Log - Start" sap:VirtualizedContainerService.HintSize="898,22" sap2010:WorkflowViewState.IdRef="Write_Log_1" LogType="Info" Message="[strXamlName + &quot;: POL/RPA/FFL Tarik Data Investigasi dari RENDY - Start&quot;]" ProjectName="[in_strProjectName]" />
+    <ui:LogMessage DisplayName="Log Message - Start" sap:VirtualizedContainerService.HintSize="898,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[strXamlName + &quot;: POL/RPA/FFL Tarik Data Investigasi dari RENDY - Start&quot;]" />
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Set tanggal sesuai tanggal running RPA sampai H+1 (Calender Days) tanggal running RPA&#xA;&#xA;Contoh: Robot running tanggal 30 Oktober 2024, maka set tanggal ke 30 Oktober 2024 sampai 31 Oktober 2024&#xA;&#xA;ex: 2024-11-08 - 2024-11-09" DisplayName="Multiple Assign - strCreratedDate" sap:VirtualizedContainerService.HintSize="898,255" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strDate]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[Now.ToString("yyyy-MM-dd") +" - "+Now.AddDays(1).ToString("yyyy-MM-dd")]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[intTimeout]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">15000</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MultipleAssign>
+    <Sequence DisplayName="Inquiry IR Invest" sap:VirtualizedContainerService.HintSize="898,2058" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Boolean" Name="boolTitleWelcome" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:UiElementExists DisplayName="Element Exists 'Inquiry Ir Invest' - Title Dashboard" Exists="[boolTitleWelcome]" sap:VirtualizedContainerService.HintSize="856,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+        <ui:UiElementExists.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8ea86a75-3c92-41c1-a142-ace165106965" InformativeScreenshot="64032b98470c6e852fedb4f234b0720a" Selector="&lt;html app='chrome.exe' title='Welcome' /&gt;&lt;webctrl aaname='*Inquiry IR Invest ' parentid='sidenavAccordion' tag='A' /&gt;" TimeoutMS="5000" WaitForReady="COMPLETE" />
+        </ui:UiElementExists.Target>
+      </ui:UiElementExists>
+      <If Condition="[boolTitleWelcome]" sap:VirtualizedContainerService.HintSize="856,256" sap2010:WorkflowViewState.IdRef="If_4">
+        <If.Then>
+          <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Inquiry IR Invest' - Title Welcome" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="70d927ef-8e86-45a6-9de2-4c65a805244f" InformativeScreenshot="1a8cdcdc6e2fccb47d454d3010312f33" Selector="&lt;html app='chrome.exe' title='Welcome' /&gt;&lt;webctrl aaname='*Inquiry IR Invest ' parentid='sidenavAccordion' tag='A' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </If.Then>
+        <If.Else>
+          <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Inquiry IR Invest' - Title Dashboard" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="70d927ef-8e86-45a6-9de2-4c65a805244f" InformativeScreenshot="1a8cdcdc6e2fccb47d454d3010312f33" Selector="&lt;html app='chrome.exe' title='Dashboard' /&gt;&lt;webctrl aaname='*Inquiry IR Invest ' parentid='sidenavAccordion' tag='A' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+            </ui:Click.Target>
+          </ui:Click>
+        </If.Else>
+      </If>
+      <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Inquiry IR Invest - All Process'" sap:VirtualizedContainerService.HintSize="856,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06d578f3-9149-410b-8e5b-8d684a15bc8f" InformativeScreenshot="a510eba5b78b3745ed96c04b74680e7d" Selector="&lt;html app='chrome.exe' title='Inquiry Investigation' /&gt;&lt;webctrl aria-role='tab' tag='A' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+        </ui:Click.Target>
+      </ui:Click>
+      <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'Created Date'" sap:VirtualizedContainerService.HintSize="856,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[strDate]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0e3c53ff-5780-4b86-ab98-bc1b1958a0de" InformativeScreenshot="002aee93538c12aa9bed48fb07a82564" Selector="&lt;html app='chrome.exe' title='Inquiry Investigation' /&gt;&lt;webctrl name='dateRange' tag='INPUT' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayMS="1000" DisplayName="Send Hotkey - Enter" sap:VirtualizedContainerService.HintSize="856,155" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="enter" KeyModifiers="None" SpecialKey="True">
+        <ui:SendHotkey.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="416173e0-6c71-4007-b9b9-87c82df78b49" InformativeScreenshot="b8e2842953ed46aeecb9dd2dacaf8c73" Selector="&lt;html app='chrome.exe' title='Inquiry Investigation' /&gt;&lt;webctrl name='dateRange' tag='INPUT' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:SendHotkey.Target>
+      </ui:SendHotkey>
+      <xl:Write_Log DisplayName="Write Log - Input Data Inquiry IR Invest" sap:VirtualizedContainerService.HintSize="856,22" sap2010:WorkflowViewState.IdRef="Write_Log_9" LogType="Info" Message="[strXamlName + &quot;: Click 'Inquiry IR Invest - All Process' &gt; Input Date (&quot; +strDate+ &quot;) &gt; pilih 50 items&quot;]" ProjectName="[in_strProjectName]" />
+      <ui:LogMessage DisplayName="Log Message - Input Data Inquiry IR Invest" sap:VirtualizedContainerService.HintSize="856,93" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[strXamlName + &quot;: Click 'Inquiry IR Invest - All Process' &gt; Input Date (&quot; +strDate+ &quot;) &gt; pilih 50 items&quot;]" />
+      <ui:UiElementExists DisplayName="Element Exists 'No Record Found' Message" Exists="[boolNoRecordInvest]" sap:VirtualizedContainerService.HintSize="856,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+        <ui:UiElementExists.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="94cf6b3a-448f-4f34-882d-b34d91237ce1" InformativeScreenshot="9d452ff889531d6c5948a2cd134791e8" Selector="&lt;html app='chrome.exe' title='Inquiry Investigation' /&gt;&lt;webctrl aria-role='alert' tag='DIV' innertext='*No Record Found*' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+        </ui:UiElementExists.Target>
+      </ui:UiElementExists>
+      <If Condition="[boolNoRecordInvest]" DisplayName="Cek data Inquiry IR Invest" sap:VirtualizedContainerService.HintSize="856,668" sap2010:WorkflowViewState.IdRef="If_1">
+        <If.Then>
+          <Sequence DisplayName="Log No Record Found" sap:VirtualizedContainerService.HintSize="376,247" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <xl:Write_Log DisplayName="Write Log - No Record Found" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Write_Log_4" LogType="Info" Message="[strXamlName + &quot; : Inquiry IR Invest - No Record Found&quot;]" ProjectName="[in_strProjectName]" />
+            <ui:LogMessage DisplayName="Log Message - No Record Found" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[strXamlName + &quot; : Inquiry IR Invest - No Record Found&quot;]" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'InquiryIn Page'" sap:VirtualizedContainerService.HintSize="435,518" sap2010:WorkflowViewState.IdRef="BrowserScope_7" InformativeScreenshot="3c45db43bc157678a0be8b6e7d4d1dc8" Selector="&lt;html app='chrome.exe' title='Inquiry Investigation' /&gt;">
+            <ui:BrowserScope.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="401,372" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayAfter="2000" DisplayName="Select Item '50 items - IR Invvest'" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_8" Item="50 items">
+                    <ui:SelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="4">
+                        <x:String>10 items</x:String>
+                        <x:String>25 items</x:String>
+                        <x:String>50 items</x:String>
+                      </scg:List>
+                    </ui:SelectItem.Items>
+                    <ui:SelectItem.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6c72e1a0-d7f5-4f9c-b4a6-74fe762963e3" InformativeScreenshot="29447f31cddada0d598026ede955f785" Selector="&lt;webctrl name='pageSize' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:SelectItem.Target>
+                  </ui:SelectItem>
+                  <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[dtIrInvest]" DisplayName="Extract Structured Data 'IR Invest'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="359,106" sap2010:WorkflowViewState.IdRef="ExtractData_8" MaxNumberOfResults="-1" NextLinkSelector="&lt;webctrl aaname='»' parentid='tab-all-process-panel' tag='SPAN' /&gt;" SimulateClick="True">
+                    <ui:ExtractData.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="415d65f5-4f97-41f3-93b4-60feb0fcf6c2" InformativeScreenshot="12eb35a4c85411569cfd101b7e53f259" Selector="&lt;webctrl tag='TABLE' /&gt;" TimeoutMS="5000" WaitForReady="COMPLETE" />
+                    </ui:ExtractData.Target>
+                  </ui:ExtractData>
+                </Sequence>
+              </ActivityAction>
+            </ui:BrowserScope.Body>
+          </ui:BrowserScope>
+        </If.Else>
+      </If>
+    </Sequence>
+    <Sequence DisplayName="Inquiry IR Reject/Refund" sap:VirtualizedContainerService.HintSize="898,1898" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Inquiry IR Reject/Refund'" sap:VirtualizedContainerService.HintSize="856,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="46e86af2-ddef-48a1-bf0f-ee20fbaa86ee" InformativeScreenshot="bb8d1021b2ecd96a30c1bf1a918ef9f2" Selector="&lt;html app='chrome.exe' title='Inquiry Investigation' /&gt;&lt;webctrl aaname='*Inquiry IR Reject/Refund*' parentid='sidenavAccordion' tag='A' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+        </ui:Click.Target>
+      </ui:Click>
+      <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Inquiry IR Reject/Refund - All Process'" sap:VirtualizedContainerService.HintSize="856,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9e2d2291-a1fa-480d-81ed-35ffdfde2c7c" InformativeScreenshot="086979eab5db6fe33dbd390939751fc7" Selector="&lt;html app='chrome.exe' title='Inquiry IR Reject/Refund' /&gt;&lt;webctrl aria-role='tab' tag='A' /&gt;" TimeoutMS="[intTimeout]">
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:Click.Target>
+      </ui:Click>
+      <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'Release Date'" sap:VirtualizedContainerService.HintSize="856,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[strDate]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0e3c53ff-5780-4b86-ab98-bc1b1958a0de" InformativeScreenshot="002aee93538c12aa9bed48fb07a82564" Selector="&lt;html app='chrome.exe' title='Inquiry IR Reject/Refund' /&gt;&lt;webctrl name='dateRange' tag='INPUT' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="856,117" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="enter" KeyModifiers="None" SpecialKey="True">
+        <ui:SendHotkey.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5af2ec1e-608d-41cb-8263-083cae573983" Selector="&lt;html app='chrome.exe' title='Inquiry IR Reject/Refund' /&gt;&lt;webctrl name='dateRange' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+          </ui:Target>
+        </ui:SendHotkey.Target>
+      </ui:SendHotkey>
+      <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Reject Flag - I'" sap:VirtualizedContainerService.HintSize="856,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="I[k(enter)]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c399c6e1-913e-4b01-944d-969d304d9fb3" InformativeScreenshot="9c32bc1fc16d63306192a2b6ff5b45ce" Selector="&lt;html app='chrome.exe' title='Inquiry IR Reject/Refund' /&gt;&lt;webctrl name='rejectFlag' tag='INPUT' type='text' /&gt;" TimeoutMS="[intTimeout]">
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <xl:Write_Log DisplayName="Write Log - Input Data Inquiry IR Reject/Refund" sap:VirtualizedContainerService.HintSize="856,22" sap2010:WorkflowViewState.IdRef="Write_Log_11" LogType="Info" Message="[strXamlName + &quot;: Click 'Inquiry IR Reject/Refund - All Process' &gt; Input Date (&quot; +strDate+ &quot;) &gt; pilih 50 items&quot;]" ProjectName="[in_strProjectName]" />
+      <ui:LogMessage DisplayName="Log Message - Input Data Inquiry IR Reject/Refund" sap:VirtualizedContainerService.HintSize="856,93" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[strXamlName + &quot;: Click 'Inquiry IR Reject/Refund - All Process' &gt; Input Date (&quot; +strDate+ &quot;) &gt; pilih 50 items&quot;]" />
+      <ui:UiElementExists DisplayName="Element Exists 'No Record Found'" Exists="[boolNoRecordRefund]" sap:VirtualizedContainerService.HintSize="856,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+        <ui:UiElementExists.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="94cf6b3a-448f-4f34-882d-b34d91237ce1" InformativeScreenshot="9d452ff889531d6c5948a2cd134791e8" Selector="&lt;html app='chrome.exe' title='Inquiry IR Reject/Refund' /&gt;&lt;webctrl aria-role='alert' tag='DIV' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+        </ui:UiElementExists.Target>
+      </ui:UiElementExists>
+      <If Condition="[boolNoRecordRefund]" DisplayName="Cek data Inquiry IR Reject/Refund" sap:VirtualizedContainerService.HintSize="856,668" sap2010:WorkflowViewState.IdRef="If_2">
+        <If.Then>
+          <Sequence DisplayName="No Record Found" sap:VirtualizedContainerService.HintSize="376,247" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Write_Log_7" LogType="Info" Message="[strXamlName + &quot;: Inquiry IR Reject/Refund - No Record Found&quot;]" ProjectName="[in_strProjectName]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[strXamlName + &quot;: Inquiry IR Reject/Refund - No Record Found&quot;]" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'InquiryIR Page'" sap:VirtualizedContainerService.HintSize="435,518" sap2010:WorkflowViewState.IdRef="BrowserScope_8" InformativeScreenshot="0e0a177febcafe0a50b6b122ddde92c0" Selector="&lt;html app='chrome.exe' title='Inquiry IR Reject/Refund' /&gt;">
+            <ui:BrowserScope.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="401,372" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayAfter="2000" DisplayName="Select Item '50 items'" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_7" Item="50 items">
+                    <ui:SelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="4">
+                        <x:String>10 items</x:String>
+                        <x:String>25 items</x:String>
+                        <x:String>50 items</x:String>
+                      </scg:List>
+                    </ui:SelectItem.Items>
+                    <ui:SelectItem.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6c72e1a0-d7f5-4f9c-b4a6-74fe762963e3" InformativeScreenshot="29447f31cddada0d598026ede955f785" Selector="&lt;webctrl tag='SELECT' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                    </ui:SelectItem.Target>
+                  </ui:SelectItem>
+                  <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[dtIrRejectRefund]" DisplayName="Extract Structured Data 'IR Reject/Refund'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="359,106" sap2010:WorkflowViewState.IdRef="ExtractData_9" MaxNumberOfResults="-1" NextLinkSelector="&lt;webctrl aaname='»' parentid='tab-all-process-panel' tag='SPAN' /&gt;" SimulateClick="True">
+                    <ui:ExtractData.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="415d65f5-4f97-41f3-93b4-60feb0fcf6c2" InformativeScreenshot="12eb35a4c85411569cfd101b7e53f259" Selector="&lt;webctrl tag='TABLE' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                    </ui:ExtractData.Target>
+                  </ui:ExtractData>
+                </Sequence>
+              </ActivityAction>
+            </ui:BrowserScope.Body>
+          </ui:BrowserScope>
+        </If.Else>
+      </If>
+    </Sequence>
+    <If Condition="[boolNoRecordInvest and boolNoRecordRefund]" DisplayName="Cek tidak ada data RENDY" sap:VirtualizedContainerService.HintSize="898,263" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <Throw Exception="[new BusinessRuleException(in_strNotifNotepad)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+      </If.Then>
+      <If.Else>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateFileReportBalancing workflow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modular\CreateFileReportBalancing.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_strFileReportBalancing">[in_strFileReportBalancing]</InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_boolNoRecordRefund">[boolNoRecordRefund]</InArgument>
+            <InArgument x:TypeArguments="x:Boolean" x:Key="in_boolNoRecordInvest">[boolNoRecordInvest]</InArgument>
+            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIrInvest">[dtIrInvest]</InArgument>
+            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIrRejectRefund">[dtIrRejectRefund]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[in_strProjectName]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+      </If.Else>
+    </If>
+    <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Logout Rendy'" sap:VirtualizedContainerService.HintSize="898,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d97dd286-919a-42aa-b64d-8db6bb3c85c5" InformativeScreenshot="ed16784c0bb98e6099bb74bb78b20c7f" Selector="&lt;html app='chrome.exe' title='Inquiry IR Reject/Refund' /&gt;&lt;webctrl aaname='*Logout*' tag='A' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+      </ui:Click.Target>
+    </ui:Click>
+    <xl:Write_Log DisplayName="Write Log - End" sap:VirtualizedContainerService.HintSize="898,22" sap2010:WorkflowViewState.IdRef="Write_Log_2" LogType="Info" Message="[strXamlName + &quot;: POL/RPA/FFL Login CLARIS - End&quot;]" ProjectName="[in_strProjectName]" />
+    <ui:LogMessage DisplayName="Log Message - End" sap:VirtualizedContainerService.HintSize="898,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[strXamlName + &quot;: POL/RPA/FFL Login CLARIS - End&quot;]" />
+  </Sequence>
+</Activity>

@@ -1,0 +1,372 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="FFL_Login_RENDY" this:FFL_Login_RENDY.in_strProjectName="Balancing_Akhir_Hari_OR_Investigasi" this:FFL_Login_RENDY.in_strLinkRendy="https://iris-admin-web-iris-uat.apps.ocpdevgra.dti.co.id/auth/login" this:FFL_Login_RENDY.in_strUserRendy="salah" this:FFL_Login_RENDY.in_strPassRendy="salah" this:FFL_Login_RENDY.in_strNotifNotepad="-" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aw="clr-namespace:Alphabet.Workflow;assembly=GetXamlFileNameActivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:xl="clr-namespace:XAS_Custom.Logging;assembly=XAS_Package">
+  <x:Members>
+    <x:Property Name="in_strProjectName" Type="InArgument(x:String)" />
+    <x:Property Name="in_strLinkRendy" Type="InArgument(x:String)" />
+    <x:Property Name="in_strUserRendy" Type="InArgument(x:String)" />
+    <x:Property Name="in_strPassRendy" Type="InArgument(x:String)" />
+    <x:Property Name="in_strNotifNotepad" Type="InArgument(x:String)" />
+    <x:Property Name="in_intTimeoutForm" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1044,4449</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>FFL_Login_RENDY_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Alphabet.Workflow</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>XAS_Custom.Logging</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Form.Activities</x:String>
+      <x:String>XAS_Reusable_Package.Reusable_Code</x:String>
+      <x:String>Alphabet.Exception</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>GetXamlFileNameActivity</AssemblyReference>
+      <AssemblyReference>XAS_Package</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Form.Activities</AssemblyReference>
+      <AssemblyReference>XAS Reusable Package_Expressions_11712113</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Tujuan:&#xA;Untuk login ke aplikasi RENDY yang akan digunakan untuk proses penarikan data yang akan diproses oleh RPA.&#xA;&#xA;Note:&#xA;* Pada window Select Application pilih Inward Remittance" DisplayName="FFL_Login_RENDY" sap:VirtualizedContainerService.HintSize="1054,4344" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strXamlName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <aw:GetXamlFileName DisplayName="Get xaml file name" sap:VirtualizedContainerService.HintSize="1012,22" sap2010:WorkflowViewState.IdRef="GetXamlFileName_1" workflowName="[strXamlName]" />
+    <xl:Write_Log DisplayName="Write Log - Start" sap:VirtualizedContainerService.HintSize="1012,22" sap2010:WorkflowViewState.IdRef="Write_Log_1" LogType="Info" Message="[strXamlName + &quot; : POL/RPA/FFL Login RENDY Start&quot;]" ProjectName="[in_strProjectName]" />
+    <ui:LogMessage DisplayName="Log Message - Start" sap:VirtualizedContainerService.HintSize="1012,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[strXamlName + &quot; : POL/RPA/FFL Login RENDY Start&quot;]" />
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser: Rendy" sap:VirtualizedContainerService.HintSize="1012,3708" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_strLinkRendy]">
+      <ui:OpenBrowser.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do: Open Rendy" sap:VirtualizedContainerService.HintSize="978,3606" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="boolSelectApplication" />
+              <Variable x:TypeArguments="x:Int32" Name="intCounter" />
+              <Variable x:TypeArguments="x:Boolean" Name="boolRestore" />
+              <Variable x:TypeArguments="x:Int32" Name="intTo" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="936,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+            <ui:UiElementExists DisplayName="Element Exists Restore Page" Exists="[boolRestore]" sap:VirtualizedContainerService.HintSize="936,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="08ce8d37-c2da-444d-996d-facb0bf58b3b" InformativeScreenshot="68f5f6bf524cf2490071c4e27f0d73d5" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' omit:title='Restore pages?' /&gt;&lt;ctrl omit:name='Restore pages?' role='alert' /&gt;&lt;ctrl name='Restore' role='push button' /&gt;" TimeoutMS="[intTo + 2000]">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <If Condition="[boolRestore]" DisplayName="If: Ada Restore Page" sap:VirtualizedContainerService.HintSize="936,255" sap2010:WorkflowViewState.IdRef="If_5">
+              <If.Then>
+                <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click X pada Restore" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cc799237-5da2-4d37-992f-639e6dc4e651" InformativeScreenshot="866c3afb7809f8c2529160a68b759c8a" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' omit:title='Restore pages?' /&gt;&lt;ctrl omit:name='Restore pages?' role='alert' /&gt;&lt;ctrl name='Close' role='push button' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+              </If.Then>
+            </If>
+            <Assign DisplayName="Assign Counter Pertama" sap:VirtualizedContainerService.HintSize="936,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[intCounter]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">1</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InterruptibleDoWhile DisplayName="Do While : Jika Gagal Login" sap:VirtualizedContainerService.HintSize="936,2911" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+              <ui:InterruptibleDoWhile.Body>
+                <Sequence DisplayName="Body: Do While" sap:VirtualizedContainerService.HintSize="900,2744" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[intCounter &lt;&gt; 1]" DisplayName="If: Jika Pertama kali tidak muncul Form Login" sap:VirtualizedContainerService.HintSize="858,1590" sap2010:WorkflowViewState.IdRef="If_4">
+                    <If.Then>
+                      <Sequence DisplayName="Sequence: Tidak Muncul Select Application" sap:VirtualizedContainerService.HintSize="713,1441" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Boolean" Name="boolDismissed" />
+                          <Variable x:TypeArguments="x:Boolean" Name="boolLoginPage" />
+                          <Variable x:TypeArguments="x:Boolean" Name="boolHomepage" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:UiElementExists DisplayName="Element Exists 'Login Page'" Exists="[boolLoginPage]" sap:VirtualizedContainerService.HintSize="671,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                          <ui:UiElementExists.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4468eaa5-2581-4633-be32-e8dcac332517" InformativeScreenshot="c3053ce0a2d61e8984a9c8e2b315464a" Selector="&lt;webctrl tag='LABEL' aaname='UserID' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                          </ui:UiElementExists.Target>
+                        </ui:UiElementExists>
+                        <If Condition="[not boolLoginPage]" sap:VirtualizedContainerService.HintSize="671,642" sap2010:WorkflowViewState.IdRef="If_6">
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="526,493" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:UiElementExists DisplayName="Element Exists 'Welcome to * Rendy'" Exists="[boolHomepage]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+                                <ui:UiElementExists.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4468eaa5-2581-4633-be32-e8dcac332517" InformativeScreenshot="c3053ce0a2d61e8984a9c8e2b315464a" Selector="&lt;html app='chrome.exe' title='Welcome' /&gt;&lt;webctrl isleaf='1' tag='H1' innertext='Welcome*' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                                </ui:UiElementExists.Target>
+                              </ui:UiElementExists>
+                              <If Condition="[boolHomepage]" sap:VirtualizedContainerService.HintSize="484,255" sap2010:WorkflowViewState.IdRef="If_7">
+                                <If.Then>
+                                  <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Logout'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                    <ui:Click.CursorPosition>
+                                      <ui:CursorPosition Position="Center">
+                                        <ui:CursorPosition.OffsetX>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetX>
+                                        <ui:CursorPosition.OffsetY>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetY>
+                                      </ui:CursorPosition>
+                                    </ui:Click.CursorPosition>
+                                    <ui:Click.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a39ce380-553d-4157-aecb-33bd6e486d48" InformativeScreenshot="56f236f0a89b8fd9d21f188f7516cf84" Selector="&lt;html app='chrome.exe' omit:title='*' /&gt;&lt;webctrl aaname='*Logout' tag='A' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                                    </ui:Click.Target>
+                                  </ui:Click>
+                                </If.Then>
+                              </If>
+                            </Sequence>
+                          </If.Then>
+                        </If>
+                        <ufa:FormActivity CreateFormActivityFileName="{x:Null}" CreateFormActivityFilePath="{x:Null}" FormFieldsInputData="{x:Null}" FormFieldsOutputData="{x:Null}" IconPath="{x:Null}" SelectedButton="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" CreateFormId="50f66067-ebcb-4ea1-b37f-62e3d6410eac" DevTools="False" DisableMaximizeButton="False" DisableMinimizeButton="False" DisableSanitize="False" Dismissed="[boolDismissed]" DisplayName="Create Form Pop Up Login RENDY/CLARIS" EnableAccessibility="False" FormHeight="360" FormSchema="%[{&quot;label&quot;:&quot;Table&quot;,&quot;cellAlignment&quot;:&quot;left&quot;,&quot;key&quot;:&quot;table3&quot;,&quot;type&quot;:&quot;table&quot;,&quot;numRows&quot;:1,&quot;input&quot;:false,&quot;tableView&quot;:false,&quot;rows&quot;:[[{&quot;components&quot;:[{&quot;refreshOnChange&quot;:true,&quot;content&quot;:&quot;&lt;left&gt;&lt;h5&gt;&lt;B&gt;RENDY / CLARIS&lt;/B&gt;&lt;/h5&gt;&lt;/left&gt;&quot;,&quot;key&quot;:&quot;label&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false,&quot;label&quot;:&quot;Label&quot;,&quot;type&quot;:&quot;label&quot;}]},{&quot;components&quot;:[]}]],&quot;numCols&quot;:2},{&quot;label&quot;:&quot;Table&quot;,&quot;cellAlignment&quot;:&quot;center&quot;,&quot;key&quot;:&quot;table&quot;,&quot;type&quot;:&quot;table&quot;,&quot;numRows&quot;:1,&quot;numCols&quot;:1,&quot;input&quot;:false,&quot;tableView&quot;:false,&quot;rows&quot;:[[{&quot;components&quot;:[{&quot;label&quot;:&quot;User ID&quot;,&quot;labelPosition&quot;:&quot;left-right&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;userId&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;labelMargin&quot;:15}]}]]},{&quot;label&quot;:&quot;Table&quot;,&quot;cellAlignment&quot;:&quot;left&quot;,&quot;key&quot;:&quot;table2&quot;,&quot;type&quot;:&quot;table&quot;,&quot;numRows&quot;:1,&quot;numCols&quot;:1,&quot;input&quot;:false,&quot;tableView&quot;:false,&quot;rows&quot;:[[{&quot;components&quot;:[{&quot;label&quot;:&quot;Password&quot;,&quot;labelPosition&quot;:&quot;left-right&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;password&quot;,&quot;type&quot;:&quot;password&quot;,&quot;labelMargin&quot;:15,&quot;input&quot;:true,&quot;protected&quot;:true}]}]]},{&quot;label&quot;:&quot;Table&quot;,&quot;cellAlignment&quot;:&quot;right&quot;,&quot;key&quot;:&quot;table1&quot;,&quot;type&quot;:&quot;table&quot;,&quot;numCols&quot;:2,&quot;input&quot;:false,&quot;tableView&quot;:false,&quot;rows&quot;:[[{&quot;components&quot;:[]},{&quot;components&quot;:[{&quot;label&quot;:&quot;SUBMIT&quot;,&quot;size&quot;:&quot;sm&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;submit1&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;input&quot;:true,&quot;type&quot;:&quot;button&quot;,&quot;isResetData&quot;:false}]}]],&quot;numRows&quot;:1}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100170&quot;,&quot;Name&quot;:&quot;Flatly&quot;,&quot;BaseCss&quot;:&quot;./assets/css/themes/flatly.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;./assets/themeicons/flatly.png&quot;,&quot;OverrideCssUrl&quot;:&quot;&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormTitle="Pop Up Login Balancing Akhir Hari IR Investigasi" FormWidth="427" GenerateInputFields="False" sap:VirtualizedContainerService.HintSize="671,210" sap2010:WorkflowViewState.IdRef="FormActivity_3" IsReadOnly="False" LocalCSSFilePath="Data\data.css" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="True" StartAsMinimized="False" TimeoutInSeconds="[in_intTimeoutForm]">
+                          <ufa:FormActivity.Body>
+                            <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,84" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </ActivityAction>
+                          </ufa:FormActivity.Body>
+                          <ufa:FormActivity.DelayBody>
+                            <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                              <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                            </ActivityAction>
+                          </ufa:FormActivity.DelayBody>
+                          <ufa:FormActivity.FormFieldsCollection>
+                            <OutArgument x:TypeArguments="x:String" x:Key="userId">[in_strUserRendy]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="password">[in_strPassRendy]</OutArgument>
+                          </ufa:FormActivity.FormFieldsCollection>
+                        </ufa:FormActivity>
+                        <If Condition="[boolDismissed]" DisplayName="If: Pop Up Login expired" sap:VirtualizedContainerService.HintSize="671,209" sap2010:WorkflowViewState.IdRef="If_3">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Throw Exception="[new BusinessRuleException(in_strNotifNotepad)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                          </If.Then>
+                        </If>
+                        <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="671,22" sap2010:WorkflowViewState.IdRef="RefreshBrowser_2" />
+                      </Sequence>
+                    </If.Then>
+                  </If>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into Username Rendy" EmptyField="True" sap:VirtualizedContainerService.HintSize="858,96" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[in_strUserRendy]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0cad7104-d0a1-4710-8b80-b628f4baf420" Selector="&lt;webctrl tag='INPUT' type='text' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <xl:Write_Log DisplayName="Write Log Start" sap:VirtualizedContainerService.HintSize="858,22" sap2010:WorkflowViewState.IdRef="Write_Log_6" LogType="Info" Message="[strXamlName + &quot; : User Rendy (&quot; +in_strUserRendy+ &quot;)&quot;]" ProjectName="[in_strProjectName]" />
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into Passwrod Rendy" EmptyField="True" sap:VirtualizedContainerService.HintSize="858,96" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[in_strPassRendy]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3c6f282b-af04-465f-b027-b1c991128c7f" Selector="&lt;webctrl tag='INPUT' type='password' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Login" sap:VirtualizedContainerService.HintSize="858,68" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f7524ad8-f045-45f0-acd5-4b0003b916e2" Selector="&lt;webctrl tag='BUTTON' aaname='*Login*' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                  <ui:UiElementExists DisplayName="Element Exists Windiw Select Application" Exists="[boolSelectApplication]" sap:VirtualizedContainerService.HintSize="858,68" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2227216e-7988-4fbb-a7b7-6ac1a80df1bd" Selector="&lt;webctrl innertext='Select Application' aaname='Select Application' /&gt;" TimeoutMS="[intTo + 2500]">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                  </ui:UiElementExists>
+                  <xl:Write_Log DisplayName="Write Log: Apakah berhasil Login?" sap:VirtualizedContainerService.HintSize="858,22" sap2010:WorkflowViewState.IdRef="Write_Log_2" LogType="Info" Message="[strXamlName + &quot; : &quot; + If(boolSelectApplication, &quot;Berhasil&quot;, &quot;Gagal&quot;) + &quot; Login&quot;]" ProjectName="[in_strProjectName]" />
+                  <ui:LogMessage DisplayName="Log Message: Apakah berhasil Login?" sap:VirtualizedContainerService.HintSize="858,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[strXamlName + &quot; : &quot; + If(boolSelectApplication, &quot;Berhasil&quot;, &quot;Gagal&quot;) + &quot; Login&quot;]" />
+                  <If Condition="[boolSelectApplication]" DisplayName="If: Jika muncul Select Application" sap:VirtualizedContainerService.HintSize="858,277" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="Pilih aplikasi sesuai dengan description pada main task.&#xA;Pilihan Aplikasi:&#xA;1) Inward Remittance atau 2) Outward Remittance" ClickType="CLICK_SINGLE" DisplayName="Click Pilih Aplikasi Sesuai Proses yang akan dijalankan" sap:VirtualizedContainerService.HintSize="334,128" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="26e46be6-e96e-4347-a17f-4d5cc4bcd911" Selector="&lt;html app='chrome.exe' title='*RENDY' /&gt;&lt;webctrl tag='H5' aaname='Inward Remittance' /&gt;" WaitForReady="COMPLETE">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                          </ui:Target>
+                        </ui:Click.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:Click>
+                    </If.Then>
+                    <If.Else>
+                      <Assign DisplayName="Assign Counter ++" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[intCounter]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">[intCounter + 1]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ui:InterruptibleDoWhile.Body>
+              <ui:InterruptibleDoWhile.Condition>
+                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Not boolSelectApplication" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+              </ui:InterruptibleDoWhile.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InterruptibleDoWhile>
+          </Sequence>
+        </ActivityAction>
+      </ui:OpenBrowser.Body>
+    </ui:OpenBrowser>
+    <xl:Write_Log DisplayName="Write Log - End" sap:VirtualizedContainerService.HintSize="1012,22" sap2010:WorkflowViewState.IdRef="Write_Log_4" LogType="Info" Message="[strXamlName + &quot; : POL/RPA/FFL Login RENDY End&quot;]" ProjectName="[in_strProjectName]" />
+    <ui:LogMessage DisplayName="Log Message - End" sap:VirtualizedContainerService.HintSize="1012,93" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[strXamlName + &quot; : POL/RPA/FFL Login RENDY End&quot;]" />
+  </Sequence>
+</Activity>

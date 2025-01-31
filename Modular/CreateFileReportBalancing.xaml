@@ -1,0 +1,193 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CreateFileReportBalancing" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aw="clr-namespace:Alphabet.Workflow;assembly=GetXamlFileNameActivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:xl="clr-namespace:XAS_Custom.Logging;assembly=XAS_Package">
+  <x:Members>
+    <x:Property Name="in_strFileReportBalancing" Type="InArgument(x:String)" />
+    <x:Property Name="in_boolNoRecordRefund" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_boolNoRecordInvest" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_dtIrInvest" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_dtIrRejectRefund" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_strProjectName" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>811,3009</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CreateFileReportBalancing_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="30">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>Alphabet.Workflow</x:String>
+      <x:String>XAS_Custom.Logging</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>GetXamlFileNameActivity</AssemblyReference>
+      <AssemblyReference>XAS_Package</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Save dengan nama:&#xA;Report Balancing Akhir Hari IR_[ddMMyyyy].xlsx di Folder_Progress sesuai config&#xA;&#xA; *[ddMMyyyy] : Tanggal running RPA" DisplayName="CreateFileReportBalancing" sap:VirtualizedContainerService.HintSize="605,2944" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dtNumber" />
+      <Variable x:TypeArguments="x:String" Name="strXamlName" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtHeader" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <aw:GetXamlFileName DisplayName="Get xaml file name" sap:VirtualizedContainerService.HintSize="563,22" sap2010:WorkflowViewState.IdRef="GetXamlFileName_1" workflowName="[strXamlName]" />
+    <xl:Write_Log DisplayName="Write Log - Start" sap:VirtualizedContainerService.HintSize="563,22" sap2010:WorkflowViewState.IdRef="Write_Log_2" LogType="Info" Message="[strXamlName + &quot;: Start&quot;]" ProjectName="[in_strProjectName]" />
+    <ui:LogMessage DisplayName="Log Message - Start" sap:VirtualizedContainerService.HintSize="563,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[strXamlName + &quot;: Start&quot;]" />
+    <Sequence DisplayName="Create Data" sap:VirtualizedContainerService.HintSize="563,2324" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If Condition="[not in_boolNoRecordInvest]" DisplayName="Cek flag ada data Ir Invest" sap:VirtualizedContainerService.HintSize="521,1096" sap2010:WorkflowViewState.IdRef="If_1">
+        <If.Then>
+          <Sequence DisplayName="Add Data IR Invest" sap:VirtualizedContainerService.HintSize="376,946" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:FilterDataTable DataTable="[in_dtIrInvest]" DisplayName="Filter Data Table - IR Invest" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,162" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[in_dtIrInvest]" SelectColumnsMode="Keep">
+              <ui:FilterDataTable.Filters>
+                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                  <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="EQ" />
+                </scg:List>
+              </ui:FilterDataTable.Filters>
+              <ui:FilterDataTable.SelectColumns>
+                <scg:List x:TypeArguments="InArgument" Capacity="4">
+                  <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+                  <InArgument x:TypeArguments="x:String">["Reff Number"]</InArgument>
+                </scg:List>
+              </ui:FilterDataTable.SelectColumns>
+            </ui:FilterDataTable>
+            <Assign DisplayName="Assign - No IR Invest" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="sd:DataTable">[dtNumber]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="sd:DataTable">[(From r In in_dtIrInvest Select baris = {(in_dtIrInvest.Rows.IndexOf(r)+1).ToString} Select in_dtIrInvest.Clone.Rows.Add(baris)).copytodatatable]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ReadRange AddHeaders="False" DataTable="[dtHeader]" DisplayName="Read Range - Header" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="IR Invest" WorkbookPath="Data\Temp\Temp.xlsx">
+              <ui:ReadRange.Range>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:ReadRange.Range>
+            </ui:ReadRange>
+            <ui:WriteRange AddHeaders="False" DataTable="[dtHeader]" DisplayName="Write Range - Header" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_6" SheetName="IR Invest" StartingCell="A1" WorkbookPath="[in_strFileReportBalancing]" />
+            <ui:WriteRange AddHeaders="False" DataTable="[dtNumber]" DisplayName="Write Range - No IR Invest" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="IR Invest" StartingCell="A2" WorkbookPath="[in_strFileReportBalancing]" />
+            <ui:WriteRange AddHeaders="False" DataTable="[in_dtIrInvest]" DisplayName="Write Range - All Data IR Invest" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="IR Invest" StartingCell="B2" WorkbookPath="[in_strFileReportBalancing]" />
+          </Sequence>
+        </If.Then>
+      </If>
+      <If Condition="[not in_boolNoRecordRefund]" DisplayName="Cek flag ada data IR Reject/Refund" sap:VirtualizedContainerService.HintSize="521,1096" sap2010:WorkflowViewState.IdRef="If_2">
+        <If.Then>
+          <Sequence DisplayName="Add Data IR Reject Refund" sap:VirtualizedContainerService.HintSize="376,946" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:FilterDataTable DataTable="[in_dtIrRejectRefund]" DisplayName="Filter Data Table - IR Reject Refund" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="334,162" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[in_dtIrRejectRefund]" SelectColumnsMode="Keep">
+              <ui:FilterDataTable.Filters>
+                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                  <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="EQ" />
+                </scg:List>
+              </ui:FilterDataTable.Filters>
+              <ui:FilterDataTable.SelectColumns>
+                <scg:List x:TypeArguments="InArgument" Capacity="4">
+                  <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+                  <InArgument x:TypeArguments="x:String">["Reff Number"]</InArgument>
+                </scg:List>
+              </ui:FilterDataTable.SelectColumns>
+            </ui:FilterDataTable>
+            <Assign DisplayName="Assign - No IR Reject Refund" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="sd:DataTable">[dtNumber]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="sd:DataTable">[(From r In in_dtIrRejectRefund Select baris = {(in_dtIrRejectRefund.Rows.IndexOf(r)+1).ToString} Select in_dtIrRejectRefund.Clone.Rows.Add(baris)).copytodatatable]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ReadRange AddHeaders="False" DataTable="[dtHeader]" DisplayName="Read Range - Header" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="IR Invest" WorkbookPath="Data\Temp.xlsx">
+              <ui:ReadRange.Range>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:ReadRange.Range>
+            </ui:ReadRange>
+            <ui:WriteRange AddHeaders="False" DataTable="[dtHeader]" DisplayName="Write Range - Header" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_7" SheetName="IR Reject Refund" StartingCell="A1" WorkbookPath="[in_strFileReportBalancing]" />
+            <ui:WriteRange AddHeaders="False" DataTable="[dtNumber]" DisplayName="Write Range - No IR Reject Refund" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Sheet1" StartingCell="A2" WorkbookPath="IR Reject Refund" />
+            <ui:WriteRange AddHeaders="False" DataTable="[in_dtIrRejectRefund]" DisplayName="Write Range - All Data IR Reject Refund" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_5" SheetName="Sheet1" StartingCell="B2" WorkbookPath="IR Reject Refund" />
+          </Sequence>
+        </If.Then>
+      </If>
+    </Sequence>
+    <xl:Write_Log DisplayName="Write Log - End" sap:VirtualizedContainerService.HintSize="563,22" sap2010:WorkflowViewState.IdRef="Write_Log_1" LogType="Info" Message="[strXamlName + &quot;: End&quot;]" ProjectName="[in_strProjectName]" />
+    <ui:LogMessage DisplayName="Log Message - End" sap:VirtualizedContainerService.HintSize="563,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[strXamlName + &quot;: End&quot;]" />
+  </Sequence>
+</Activity>

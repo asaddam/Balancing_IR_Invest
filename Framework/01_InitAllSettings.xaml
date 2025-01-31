@@ -1,0 +1,427 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="InitAllSettings" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aw="clr-namespace:Alphabet.Workflow;assembly=GetXamlFileNameActivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:xl="clr-namespace:XAS_Custom.Logging;assembly=XAS_Package">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Config di sheet GlobalHandler (out)" Name="out_ConfigGlobalHandler" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Config di sheet User (out)" Name="out_ConfigUser" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Config di sheet MailIT(out)" Name="out_ConfigMailIT" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Config di sheet Mail(out)" Name="out_ConfigMail" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Config di sheet IT(out)" Name="out_ConfigIT" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Config di sheet Asset(out)" Name="out_ConfigAsset" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Config di sheet Queue(out)" Name="out_ConfigQueue" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Nama project (out)" Name="out_FlowName" Type="OutArgument(x:String)" />
+    <x:Property Name="out_unattendedFlag" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="out_dtConfigUserNAS" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>816.8,4242.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>InitAllSettings_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="31">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>XAS_Custom.Logging</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>Alphabet.Workflow</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>XAS_Package</AssemblyReference>
+      <AssemblyReference>GetXamlFileNameActivity</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="InitAllSettings" sap:VirtualizedContainerService.HintSize="827.2,4177.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="Exist config user" Name="boolPathConfigUser" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Config path master" Default="Data\Config.xlsx" Name="strConfigPathMaster" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Config path final" Name="strConfigPath" />
+      <Variable x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="Reuse Boolean" Name="boolExistGeneral" />
+      <Variable x:TypeArguments="x:String" Name="strXamlName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <aw:GetXamlFileName DisplayName="Get xaml file name" sap:VirtualizedContainerService.HintSize="785.6,22.4" sap2010:WorkflowViewState.IdRef="GetXamlFileName_1" workflowName="[strXamlName]" />
+    <Sequence sap2010:Annotation.AnnotationText="Mengambil nama project dari file project.json" DisplayName="Mengambil nama project dari file project.json" sap:VirtualizedContainerService.HintSize="785.6,112.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName=" Assign - out_FlowName dari JSON" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_FlowName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[file.ReadAllLines("project.json")(1).ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName=" Assign - out_FlowName split :" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_FlowName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[out_FlowName.Split(":"c)(1)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName=" Assign - out_FlowName split &quot;&quot;" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_FlowName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[out_FlowName.Split(""""c)(1)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName=" Assign - out_FlowName replace spasi dengan _" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_FlowName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[out_FlowName.Replace(" ","_")]</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Sequence>
+    <xl:Check_Log DisplayName="Check Log" sap:VirtualizedContainerService.HintSize="785.6,22.4" sap2010:WorkflowViewState.IdRef="Check_Log_1" MaxMonth="3" ProjectName="[out_FlowName]" />
+    <xl:Write_Log DisplayName="Write Log init" sap:VirtualizedContainerService.HintSize="785.6,22.4" sap2010:WorkflowViewState.IdRef="Write_Log_1" LogType="Info" Message="[strXamlName + &quot; : Init All Settings&quot;]" ProjectName="[out_FlowName]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Membaca Config Sheet User dari folder project untuk get value path Config Local" DisplayName="Read Table Config User in robot root folder" sap:VirtualizedContainerService.HintSize="785.6,157.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\02_ReadTableConfig.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strSheet">User</InArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_dictConfig">[out_ConfigUser]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strConfigPath">[strConfigPathMaster]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[out_FlowName]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="785.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,250.4" sap2010:WorkflowViewState.IdRef="Sequence_31">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Membaca Config Sheet IT dari folder project untuk get value flag unattended" DisplayName="Read Table Config IT in robot root folder" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\02_ReadTableConfig.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strSheet">IT</InArgument>
+              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_dictConfig">[out_ConfigIT]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strConfigPath">[strConfigPathMaster]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[out_FlowName]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <If Condition="[out_ConfigUser(&quot;Path_RobotSetting&quot;).ToString &lt;&gt; &quot;&quot;]" DisplayName="Check if custom Path_RobotSetting is specified" sap:VirtualizedContainerService.HintSize="785.6,209.6" sap2010:WorkflowViewState.IdRef="If_13">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Assign DisplayName="Obtain path from sheet user" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_34">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strConfigPath]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[out_ConfigUser("Path_RobotSetting").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+      <If.Else>
+        <Assign DisplayName="Assign path Robot_Setting" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_22">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strConfigPath]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[String.Format("C:\Robot_Setting\{0}\",out_FlowName)]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <Sequence DisplayName="Cek &amp; Copy File Config" sap:VirtualizedContainerService.HintSize="785.6,1108.8" sap2010:WorkflowViewState.IdRef="Sequence_22">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:PathExists DisplayName="Path Exists - Folder Config" Exists="[boolExistGeneral]" sap:VirtualizedContainerService.HintSize="577.6,90.4" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[strConfigPath]" PathType="Folder" />
+      <If sap2010:Annotation.AnnotationText="Cek apakah ada folder Config Local. Jika tidak, robot create folder sesuai nama project." Condition="[boolExistGeneral = False]" DisplayName="If - Folder Config?" sap:VirtualizedContainerService.HintSize="577.6,274.4" sap2010:WorkflowViewState.IdRef="If_7">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="333.6,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[strConfigPath]" />
+        </If.Then>
+      </If>
+      <Assign DisplayName="Assign file config path" sap:VirtualizedContainerService.HintSize="577.6,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[strConfigPath]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[Path.Combine(strConfigPath,"Config.xlsx")]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:PathExists DisplayName="Path Exists - File Config?" Exists="[boolPathConfigUser]" sap:VirtualizedContainerService.HintSize="577.6,90.4" sap2010:WorkflowViewState.IdRef="PathExists_5" Path="[strConfigPath]" PathType="File">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:PathExists>
+      <If sap2010:Annotation.AnnotationText="Cek apakah ada Config Local. Jika tidak, robot akan duplikasi Config dari folder project." Condition="[boolPathConfigUser = False]" DisplayName="If - file Config?" sap:VirtualizedContainerService.HintSize="577.6,340.8" sap2010:WorkflowViewState.IdRef="If_8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[strConfigPath]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="433.6,160" sap2010:WorkflowViewState.IdRef="CopyFile_3" Overwrite="False" Path="[strConfigPathMaster]" />
+        </If.Then>
+      </If>
+    </Sequence>
+    <xl:Write_Log DisplayName="Write Log config" sap:VirtualizedContainerService.HintSize="785.6,22.4" sap2010:WorkflowViewState.IdRef="Write_Log_3" LogType="Info" Message="[strXamlName + &quot; : Membaca config dari &quot;+strConfigPath]" ProjectName="[out_FlowName]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Membaca Config Sheet IT dari folder project untuk get value flag unattended" DisplayName="Read Table Config IT in Config Path" sap:VirtualizedContainerService.HintSize="785.6,157.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\02_ReadTableConfig.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strSheet">IT</InArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_dictConfig">[out_ConfigIT]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strConfigPath">[strConfigPath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[out_FlowName]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign robot unattended" sap:VirtualizedContainerService.HintSize="785.6,60" sap2010:WorkflowViewState.IdRef="Assign_35">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[out_unattendedFlag]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">[out_ConfigIT("Server_Unattended").ToString.Trim.ToLower = "yes"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <xl:Write_Log DisplayName="Write Log robot Unatteded/attended" sap:VirtualizedContainerService.HintSize="785.6,22.4" sap2010:WorkflowViewState.IdRef="Write_Log_8" LogType="Info" Message="[If(out_unattendedFlag,&#xA;strXamlName + &quot; : Robot initialized as Unattended&quot;,&#xA;strXamlName + &quot; : Robot initialized as attended&quot;)]" ProjectName="[out_FlowName]" />
+    <If Condition="[out_ConfigIT(&quot;BackToNAS&quot;).ToString.ToLower = &quot;yes&quot;]" DisplayName="Check flag BackToNas" sap:VirtualizedContainerService.HintSize="785.6,509.6" sap2010:WorkflowViewState.IdRef="If_15">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Start duplicate to local folder and modify sheet ConfigUser" sap:VirtualizedContainerService.HintSize="408,360" sap2010:WorkflowViewState.IdRef="Sequence_30">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd:DataTable" Name="dtConfigUserOriginal" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DuplicateFolder workflow" sap:VirtualizedContainerService.HintSize="366.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\04_DuplicateFolder.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_configPath">[strConfigPath]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_projectName">[out_FlowName]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_sheetName">User</InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtConfigUser">[dtConfigUserOriginal]</OutArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtConfigUserNAS">[out_dtConfigUserNAS]</OutArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_configIT">[out_ConfigIT]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ReadTableConfigUnattended workflow" sap:VirtualizedContainerService.HintSize="366.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\05_ReadTableConfigUnattended.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">[out_ConfigUser]</OutArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtConfig">[dtConfigUserOriginal]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Membaca Config Sheet User" DisplayName="Read sheet user from new config path" sap:VirtualizedContainerService.HintSize="333.6,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\02_ReadTableConfig.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_strSheet">User</InArgument>
+            <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_dictConfig">[out_ConfigUser]</OutArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_strConfigPath">[strConfigPath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[out_FlowName]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:InvokeWorkflowFile>
+      </If.Else>
+    </If>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Membaca Config Sheet Mail" DisplayName="Invoke ReadTableEmail workflow - Sheet Mail" sap:VirtualizedContainerService.HintSize="785.6,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\02_ReadTableConfig.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_dictConfig">[out_ConfigMail]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strSheet">Mail</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strConfigPath">[strConfigPath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[out_FlowName]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Membaca Config Sheet Asset" DisplayName="Invoke Workflow File - Sheet Asset" sap:VirtualizedContainerService.HintSize="785.6,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\02_ReadTableConfig.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strSheet">Asset</InArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_dictConfig">[out_ConfigAsset]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strConfigPath">[strConfigPathMaster]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[out_FlowName]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Membaca Config Sheet Queue" DisplayName="Invoke Workflow File - Sheet Queue" sap:VirtualizedContainerService.HintSize="785.6,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\02_ReadTableConfig.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strSheet">Queue</InArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_dictConfig">[out_ConfigQueue]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strConfigPath">[strConfigPathMaster]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[out_FlowName]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Membaca Config Sheet Global Handler" DisplayName="Invoke Workflow File - Sheet Global Handler" sap:VirtualizedContainerService.HintSize="785.6,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\02_ReadTableConfig.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strSheet">Global Handler</InArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_dictConfig">[out_ConfigGlobalHandler]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strConfigPath">[strConfigPath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[out_FlowName]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Membaca Config Sheet Mail IT" DisplayName="Invoke ReadTableEmail workflow - Sheet Mail IT" sap:VirtualizedContainerService.HintSize="785.6,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\02_ReadTableConfig.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_dictConfig">[out_ConfigMailIT]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strSheet">MailIT</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strConfigPath">[strConfigPath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strProjectName">[out_FlowName]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign var LastSavedData" sap:VirtualizedContainerService.HintSize="785.6,60" sap2010:WorkflowViewState.IdRef="Assign_32">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Object">[out_ConfigGlobalHandler("LastSavedData")]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Object">[""]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign var ErrorInvokeCode" sap:VirtualizedContainerService.HintSize="785.6,60" sap2010:WorkflowViewState.IdRef="Assign_33">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Object">[out_ConfigGlobalHandler("ErrorInvokeCode")]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Object">[""]</InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>

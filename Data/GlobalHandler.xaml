@@ -1,0 +1,460 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GlobalHandler" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aw="clr-namespace:Alphabet.Workflow;assembly=GetXamlFileNameActivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uico="http://schemas.uipath.com/workflow/activities/contracts" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:xl="clr-namespace:XAS_Custom.Logging;assembly=XAS_Package">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Nama project" Name="in_gvProjectName" Type="InArgument(ui:GenericValue)" />
+    <x:Property sap2010:Annotation.AnnotationText="Config sheet global handler" Name="in_dictConfigGlobalHandler" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Exception untuk menampilkan pesan error dan nama activity yang error" Name="in_exeException" Type="InArgument(s:Exception)" />
+    <x:Property sap2010:Annotation.AnnotationText="Config sheet IT" Name="in_dictConfigIT" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Config sheet User" Name="in_dictConfigUser" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_boolUnattendedFlag" Type="InArgument(x:Boolean)" />
+    <x:Property Name="out_eaResult" Type="OutArgument(uico:ErrorAction)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="in_ehaErrorInfo" Type="InArgument(uico:ExceptionHandlerArgs)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1233.6,4575.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>GlobalHandler_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="39">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Activities.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Form.Activities</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>Log</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>XAS_Custom.Logging</x:String>
+      <x:String>Alphabet.Workflow</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="39">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Activities.Contracts</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.PDF</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Form.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Log</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>XAS_Package</AssemblyReference>
+      <AssemblyReference>GetXamlFileNameActivity</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="1 - Global Exception Sequence" sap:VirtualizedContainerService.HintSize="1167.2,4373.6" sap2010:WorkflowViewState.IdRef="Sequence_19">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Error message jika menggunakan set as Global Handler" Name="strErrMessage" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Alamat email (to)" Name="strToEmail" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Alamat email (cc)" Name="strCcEmail" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Nama flow robot" Name="strFlowName" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Subject Email" Name="strSubjectEmail" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Path hasil screenshot" Name="strScreenshotPath" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Path folder Log" Name="strFolderLogTrace" />
+      <Variable x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="Flag" Name="boolSsPathExist" />
+      <Variable x:TypeArguments="ui:Image" sap2010:Annotation.AnnotationText="Hasil screenshot" Name="imgScreenshotGlobal" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Format nama file screenshot" Name="strFormatss" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Hostname PC" Name="strHostname" />
+      <Variable x:TypeArguments="ui:GenericValue" sap2010:Annotation.AnnotationText="Body email " Name="gvEmailGlobal" />
+      <Variable x:TypeArguments="x:String" Name="strBccEmail" />
+      <Variable x:TypeArguments="x:String" Name="strFromEmail" />
+      <Variable x:TypeArguments="x:String" Name="strFolderLogInfo" />
+      <Variable x:TypeArguments="x:String" Name="strXamlName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <aw:GetXamlFileName DisplayName="Get xaml file name" sap:VirtualizedContainerService.HintSize="1125.6,22.4" sap2010:WorkflowViewState.IdRef="GetXamlFileName_1" workflowName="[strXamlName]" />
+    <ui:LogMessage DisplayName="Log Message : Exception GlobalHandler" sap:VirtualizedContainerService.HintSize="1125.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[strXamlName +&quot; : &quot; + in_exeException.Source+&quot; : &quot;+in_exeException.Message]" />
+    <ui:LogMessage DisplayName="Log Message :  Last Data Proceed" sap:VirtualizedContainerService.HintSize="1125.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Error" Message="[strXamlName +&quot; : Last saved data : &quot; +in_dictConfigGlobalHandler(&quot;LastSavedData&quot;).ToString]" />
+    <Assign DisplayName="Assign str_errMessage 1" sap:VirtualizedContainerService.HintSize="1125.6,60" sap2010:WorkflowViewState.IdRef="Assign_33">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strErrMessage]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_exeException.Message]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[strErrMessage.Length &gt; 100]" DisplayName="If str_errMessage.Length &gt; 100" sap:VirtualizedContainerService.HintSize="1125.6,209.6" sap2010:WorkflowViewState.IdRef="If_10">
+      <If.Then>
+        <Assign DisplayName="Assign str_errMessage 2" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_45">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strErrMessage]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[strErrMessage.Substring(0, 100)]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+    </If>
+    <Sequence sap:VirtualizedContainerService.HintSize="1125.6,3603.2" sap2010:WorkflowViewState.IdRef="Sequence_46">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Assign str_hostname" sap:VirtualizedContainerService.HintSize="1084,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[strHostname]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[Environment.MachineName]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign str_flowname" sap:VirtualizedContainerService.HintSize="1084,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[strFlowName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_gvProjectName]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <xl:Write_Log DisplayName="Write Log : Write Error" sap:VirtualizedContainerService.HintSize="1084,22.4" sap2010:WorkflowViewState.IdRef="Write_Log_6" LogType="Trace" Message="[strXamlName +&quot; : Error in &quot;+in_exeException.Source+&quot; activity - &quot;+in_exeException.Message+&quot;.&quot;]" ProjectName="[in_gvProjectName]" />
+      <Sequence DisplayName="Take Error Screenshot" sap:VirtualizedContainerService.HintSize="1084,3248" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="Take Screenshot" sap:VirtualizedContainerService.HintSize="1042.4,68.8" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[imgScreenshotGlobal]">
+          <ui:TakeScreenshot.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="9e478c53-11c9-45d6-880f-3a539f1cd359" WaitForReady="INTERACTIVE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:TakeScreenshot.Target>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:TakeScreenshot>
+        <Assign DisplayName="Assign str_ScreenshotPath 2" sap:VirtualizedContainerService.HintSize="1042.4,60" sap2010:WorkflowViewState.IdRef="Assign_48">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strScreenshotPath]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Documents", "UiPath_Screenshot", in_gvProjectName)]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:PathExists DisplayName="Path Exists str_ScreenshotPath" Exists="[boolSsPathExist]" sap:VirtualizedContainerService.HintSize="1042.4,90.4" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[strScreenshotPath]" PathType="Folder" />
+        <If Condition="[boolSsPathExist]" DisplayName="If bool_ssPathExist" sap:VirtualizedContainerService.HintSize="1042.4,547.2" sap2010:WorkflowViewState.IdRef="If_5">
+          <If.Then>
+            <If Condition="[Directory.GetFiles(strScreenshotPath).OrderBy(Function(x) new fileinfo(x).LastWriteTime).Count &gt; 4]" DisplayName="If path screenshot exist" sap:VirtualizedContainerService.HintSize="519.2,397.6" sap2010:WorkflowViewState.IdRef="If_4">
+              <If.Then>
+                <Sequence DisplayName="Delete old screenshot" sap:VirtualizedContainerService.HintSize="375.2,248" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[strXamlName +&quot; : &quot; + Directory.GetFiles(strScreenshotPath).OrderBy(Function(x) new fileinfo(x).LastWriteTime)(0)]" />
+                  <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[Directory.GetFiles(strScreenshotPath).OrderBy(Function(x) new fileinfo(x).LastWriteTime)(0)]" />
+                </Sequence>
+              </If.Then>
+            </If>
+          </If.Then>
+          <If.Else>
+            <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory" sap:VirtualizedContainerService.HintSize="333.6,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[strScreenshotPath]" />
+          </If.Else>
+        </If>
+        <Assign DisplayName="Assign str_format_ss" sap:VirtualizedContainerService.HintSize="1042.4,60" sap2010:WorkflowViewState.IdRef="Assign_47">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strFormatss]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[now.ToString("ddMMyyyy_hh.mm.ss")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Assign str_ScreenshotPath" sap:VirtualizedContainerService.HintSize="1042.4,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strScreenshotPath]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[path.Combine( strScreenshotPath, strFormatss+".png")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:SaveImage DisplayName="Save Image" FileName="[strScreenshotPath]" sap:VirtualizedContainerService.HintSize="1042.4,92.8" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[imgScreenshotGlobal]" />
+        <Assign DisplayName="Assign gv_emailGlobal" sap:VirtualizedContainerService.HintSize="1042.4,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+          <Assign.To>
+            <OutArgument x:TypeArguments="ui:GenericValue">[gvEmailGlobal]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="ui:GenericValue">[in_dictConfigGlobalHandler("EmailBody").ToString.Replace("[flowName]", strFlowName).Replace("[hostName]", strHostname) + Environment.NewLine +in_dictConfigGlobalHandler("LastSavedData").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Assign str_toEmail" sap:VirtualizedContainerService.HintSize="1042.4,60" sap2010:WorkflowViewState.IdRef="Assign_50">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strToEmail]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[in_dictConfigGlobalHandler("EmailTo").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Assign str_ccEmail" sap:VirtualizedContainerService.HintSize="1042.4,60" sap2010:WorkflowViewState.IdRef="Assign_49">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strCcEmail]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[in_dictConfigGlobalHandler("EmailCC").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="1042.4,60" sap2010:WorkflowViewState.IdRef="Assign_51">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strBccEmail]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[in_dictConfigGlobalHandler("EmailBCC").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Assign str_subject" sap:VirtualizedContainerService.HintSize="1042.4,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strSubjectEmail]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[in_dictConfigGlobalHandler("EmailSubject").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Assign str_subject 2" sap:VirtualizedContainerService.HintSize="1042.4,60" sap2010:WorkflowViewState.IdRef="Assign_26">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strSubjectEmail]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[strSubjectEmail.Replace("[flowName]",strFlowName).Replace("[Timestamp]",Now.ToString("ddMMyyyy"))]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Log path file strFolderLog" sap:VirtualizedContainerService.HintSize="1042.4,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strFolderLogTrace]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Documents", "UiPath_Log", in_gvProjectName, "Trace")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Log path file strFolderLog Info" sap:VirtualizedContainerService.HintSize="1042.4,60" sap2010:WorkflowViewState.IdRef="Assign_55">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strFolderLogInfo]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Documents", "UiPath_Log", in_gvProjectName, "Info")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <If Condition="[in_boolUnattendedFlag = true]" DisplayName="Check robot unattended" sap:VirtualizedContainerService.HintSize="1042.4,1096" sap2010:WorkflowViewState.IdRef="If_12">
+          <If.Then>
+            <Sequence DisplayName="Send Email Unattended" sap:VirtualizedContainerService.HintSize="520,946.4" sap2010:WorkflowViewState.IdRef="Sequence_47">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="strPort" />
+                <Variable x:TypeArguments="x:String" Name="strServer" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Assign strPort" sap:VirtualizedContainerService.HintSize="478.4,60" sap2010:WorkflowViewState.IdRef="Assign_52">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strPort]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_dictConfigIT("Email_Port").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="Assign strServer" sap:VirtualizedContainerService.HintSize="478.4,60" sap2010:WorkflowViewState.IdRef="Assign_53">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strServer]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_dictConfigIT("Email_Server").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="Assign strFromEmail" sap:VirtualizedContainerService.HintSize="478.4,60" sap2010:WorkflowViewState.IdRef="Assign_54">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strFromEmail]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_dictConfigIT("Email_Account").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:RetryScope DisplayName="Retry Scope Email Unattend" sap:VirtualizedContainerService.HintSize="478.4,553.6" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="1">
+                <ui:RetryScope.ActivityBody>
+                  <ActivityAction>
+                    <TryCatch DisplayName="Try Catch - Email SMTP Attach Screenshoot, Log Info dan Log Trace" sap:VirtualizedContainerService.HintSize="436.8,377.6" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <TryCatch.Try>
+                        <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" Body="[gvEmailGlobal]" DisplayName="Send SMTP Mail Message - Attach Screenshoot, Log Info dan Log Trace" Email="[strFromEmail]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="True" Port="[int32.Parse(strPort)]" SecureConnection="None" Server="[strServer]" Subject="[strSubjectEmail]" To="[strToEmail]">
+                          <ui:SendMail.Files>
+                            <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                              <InArgument x:TypeArguments="x:String">[strScreenshotPath]</InArgument>
+                              <InArgument x:TypeArguments="x:String">[path.Combine( strFolderLogTrace, Directory.GetFiles(strFolderLogTrace).OrderByDescending(Function(x) new fileinfo(x).LastWriteTime)(0))]</InArgument>
+                              <InArgument x:TypeArguments="x:String">[path.Combine(strFolderLogInfo, Directory.GetFiles(strFolderLogInfo).OrderByDescending(Function(x) new fileinfo(x).LastWriteTime)(0))]</InArgument>
+                            </scg:List>
+                          </ui:SendMail.Files>
+                        </ui:SendMail>
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ActivityAction x:TypeArguments="s:Exception">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                            </ActivityAction.Argument>
+                            <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" Body="[gvEmailGlobal]" DisplayName="Send SMTP Mail Message - Tanpa attach Log Info" Email="[strFromEmail]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendMail_2" IsBodyHtml="True" Port="[int32.Parse(strPort)]" SecureConnection="None" Server="[strServer]" Subject="[strSubjectEmail]" To="[strToEmail]">
+                              <ui:SendMail.Files>
+                                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                  <InArgument x:TypeArguments="x:String">[strScreenshotPath]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[path.Combine( strFolderLogTrace, Directory.GetFiles(strFolderLogTrace).OrderByDescending(Function(x) new fileinfo(x).LastWriteTime)(0))]</InArgument>
+                                </scg:List>
+                              </ui:SendMail.Files>
+                            </ui:SendMail>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                    </TryCatch>
+                  </ActivityAction>
+                </ui:RetryScope.ActivityBody>
+                <ui:RetryScope.Condition>
+                  <ActivityFunc x:TypeArguments="x:Boolean" />
+                </ui:RetryScope.Condition>
+              </ui:RetryScope>
+            </Sequence>
+          </If.Then>
+          <If.Else>
+            <ui:RetryScope DisplayName="Retry Scope Email Attended" sap:VirtualizedContainerService.HintSize="478.4,553.6" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="1">
+              <ui:RetryScope.ActivityBody>
+                <ActivityAction>
+                  <TryCatch DisplayName="Try Catch - Email Attach Screenshoot, Log Info dan Log Trace" sap:VirtualizedContainerService.HintSize="436.8,377.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch.Try>
+                      <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" Bcc="[strBccEmail]" Body="[gvEmailGlobal]" Cc="[strCcEmail]" DisplayName="Send Outlook Mail Message - Attach Screenshoot, Log Info dan Log Trace" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_4" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[strSubjectEmail]" TimeoutMS="120000" To="[strToEmail]">
+                        <ui:SendOutlookMail.Files>
+                          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                            <InArgument x:TypeArguments="x:String">[strScreenshotPath]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[path.Combine(strFolderLogTrace, Directory.GetFiles(strFolderLogTrace).OrderByDescending(Function(x) new fileinfo(x).LastWriteTime)(0))]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[path.Combine(strFolderLogInfo, Directory.GetFiles(strFolderLogInfo).OrderByDescending(Function(x) new fileinfo(x).LastWriteTime)(0))]</InArgument>
+                          </scg:List>
+                        </ui:SendOutlookMail.Files>
+                      </ui:SendOutlookMail>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" Bcc="[strBccEmail]" Body="[gvEmailGlobal]" Cc="[strCcEmail]" DisplayName="Send Outlook Mail Message - Tanpa attach Log Info" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_5" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[strSubjectEmail]" TimeoutMS="120000" To="[strToEmail]">
+                            <ui:SendOutlookMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                <InArgument x:TypeArguments="x:String">[strScreenshotPath]</InArgument>
+                                <InArgument x:TypeArguments="x:String">[path.Combine(strFolderLogTrace, Directory.GetFiles(strFolderLogTrace).OrderByDescending(Function(x) new fileinfo(x).LastWriteTime)(0))]</InArgument>
+                              </scg:List>
+                            </ui:SendOutlookMail.Files>
+                          </ui:SendOutlookMail>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                </ActivityAction>
+              </ui:RetryScope.ActivityBody>
+              <ui:RetryScope.Condition>
+                <ActivityFunc x:TypeArguments="x:Boolean" />
+              </ui:RetryScope.Condition>
+            </ui:RetryScope>
+          </If.Else>
+        </If>
+      </Sequence>
+    </Sequence>
+  </Sequence>
+</Activity>

@@ -1,0 +1,1158 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="InquiryDataDiClaris" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aw="clr-namespace:Alphabet.Workflow;assembly=GetXamlFileNameActivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:xl="clr-namespace:XAS_Custom.Logging;assembly=XAS_Package">
+  <x:Members>
+    <x:Property Name="in_strProjectName" Type="InArgument(x:String)" />
+    <x:Property Name="in_dtIrRejectRefund" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_dtIrInvest" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_strInquiryType" Type="InArgument(x:String)" />
+    <x:Property Name="in_strItemType" Type="InArgument(x:String)" />
+    <x:Property Name="in_strItemTitle" Type="InArgument(x:String)" />
+    <x:Property Name="in_strKeywordBalancing" Type="InArgument(x:String)" />
+    <x:Property Name="in_arrSheet" Type="InArgument(s:String[])" />
+    <x:Property Name="in_strFileReportBalancing" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>936,910</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>InquiryDataDiClaris_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="35">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>XAS_Custom.Logging</x:String>
+      <x:String>Alphabet.Workflow</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="60">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>XAS_Package</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>GetXamlFileNameActivity</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="InquiryDataDiClaris" sap:VirtualizedContainerService.HintSize="476,805" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strXamlName" />
+      <Variable x:TypeArguments="x:Int32" Name="intTimeout" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <aw:GetXamlFileName DisplayName="Get xaml file name" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="GetXamlFileName_1" workflowName="[strXamlName]" />
+    <xl:Write_Log DisplayName="Write Log - Start" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Write_Log_1" LogType="Info" Message="[strXamlName + &quot;: POL/RPA/FFL Inquiry Data di CLARIS - Start&quot;]" ProjectName="[in_strProjectName]" />
+    <ui:LogMessage DisplayName="Log Message - Start" sap:VirtualizedContainerService.HintSize="434,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[strXamlName + &quot;: POL/RPA/FFL Inquiry Data di CLARIS - Start&quot;]" />
+    <Assign DisplayName="Assign - Timeout" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_41">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[intTimeout]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">3000</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,161" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[in_strFileReportBalancing]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'CLARIS Page'" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="4a1b237bd1f0afbdb81823e77d2738d3" Selector="&lt;html app='chrome.exe' title='CLARIS' /&gt;">
+            <ui:BrowserScope.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - Sheet Excel Output" sap:VirtualizedContainerService.HintSize="1358,3897" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[in_arrSheet]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="x:String">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body Sheet Excel" sap:VirtualizedContainerService.HintSize="1322,3773" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="sd:DataTable" Name="dtUsed" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If Condition="[item = &quot;IR Invest&quot;]" DisplayName="Cek Nama Sheet" sap:VirtualizedContainerService.HintSize="1280,209" sap2010:WorkflowViewState.IdRef="If_17">
+                          <If.Then>
+                            <Assign DisplayName="Assign - dtUsed for IR Invest" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_35">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="sd:DataTable">[dtUsed]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="sd:DataTable">[in_dtIrInvest]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Then>
+                          <If.Else>
+                            <Assign DisplayName="Assign - dtUsed for IR Reject Refund" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_36">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="sd:DataTable">[dtUsed]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="sd:DataTable">[in_dtIrRejectRefund]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Else>
+                        </If>
+                        <Assign DisplayName="Assign - Keep Status Not Found (AUTOINQ)" sap:VirtualizedContainerService.HintSize="1280,60" sap2010:WorkflowViewState.IdRef="Assign_38">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="sd:DataTable">[dtUsed]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="sd:DataTable">[dtUsed.AsEnumerable.Where(Function(x) x("Status").ToString.Equals("Not Found (AUTOINQ)")).CopyToDataTable]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtUsed]" DisplayName="For Each Row in Data Table - IR Invest" sap:VirtualizedContainerService.HintSize="1280,2860" sap2010:WorkflowViewState.IdRef="ForEachRow_5">
+                          <ui:ForEachRow.Body>
+                            <ActivityAction x:TypeArguments="sd:DataRow">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Body Row" sap:VirtualizedContainerService.HintSize="1246,2740" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="strReffNumber" />
+                                  <Variable x:TypeArguments="x:String" Name="strDataCount" />
+                                  <Variable x:TypeArguments="x:Double" Name="dblDataCount" />
+                                  <Variable x:TypeArguments="sd:DataTable" Name="dtExtractDataTable" />
+                                  <Variable x:TypeArguments="x:Int32" Name="intIndexCase" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign DisplayName="Assign - Reff Number" sap:VirtualizedContainerService.HintSize="1204,60" sap2010:WorkflowViewState.IdRef="Assign_37">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[strReffNumber]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[CurrentRow("Reff Number").ToString]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'Reff Number' homepage" EmptyField="True" sap:VirtualizedContainerService.HintSize="1204,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[strReffNumber]">
+                                  <ui:TypeInto.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3bc66c74-6225-4f6b-b13a-021666d017e1" InformativeScreenshot="6b76b64a50587ba0adbc8251d2602749" Selector="&lt;webctrl parentid='main-menu' tag='INPUT' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                  </ui:TypeInto.Target>
+                                </ui:TypeInto>
+                                <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Icon Find'" sap:VirtualizedContainerService.HintSize="1204,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                  <ui:Click.CursorPosition>
+                                    <ui:CursorPosition Position="Center">
+                                      <ui:CursorPosition.OffsetX>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetX>
+                                      <ui:CursorPosition.OffsetY>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetY>
+                                    </ui:CursorPosition>
+                                  </ui:Click.CursorPosition>
+                                  <ui:Click.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1930c221-8c0f-4a52-aa32-aa8cc2050670" InformativeScreenshot="5c4d3a258b2d82b8ff28359d2397a35d" Selector="&lt;webctrl tag='BUTTON' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                  </ui:Click.Target>
+                                </ui:Click>
+                                <ui:GetValue ContinueOnError="True" DisplayName="Get Text 'Showing*'" sap:VirtualizedContainerService.HintSize="1204,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                                  <ui:GetValue.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f0a9d6c8-2bf1-44f4-a076-15a6396951f5" InformativeScreenshot="9e8bcaf92b9307e0254856cd7b83938b" Selector="&lt;html app='chrome.exe' title='CLARIS' /&gt;&lt;webctrl id='label' tag='SPAN' aaname='Showing*' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                  </ui:GetValue.Target>
+                                  <ui:GetValue.Value>
+                                    <OutArgument x:TypeArguments="x:String">[strDataCount]</OutArgument>
+                                  </ui:GetValue.Value>
+                                </ui:GetValue>
+                                <Sequence DisplayName="Data Ditampilkan" sap:VirtualizedContainerService.HintSize="1204,1990" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign DisplayName="Assign - Get 'Showing of Data'" sap:VirtualizedContainerService.HintSize="1162,60" sap2010:WorkflowViewState.IdRef="Assign_44">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Double">[dblDataCount]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Double">[math.Ceiling(CInt(Split(strDataCount,"of").Last.ToString.trim.Replace("Data",""))/10)]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="1162,22" sap2010:WorkflowViewState.IdRef="Write_Log_7" LogType="Info" Message="[strXamlName + &quot;: Input Reff Number &quot; + strReffNumber + &quot; |  &quot; + strDataCount + &quot; -&gt; &quot; + dblDataCount.ToString]" ProjectName="[in_strProjectName]" />
+                                  <If sap2010:Annotation.AnnotationText="- Bisa lebih dari 1 kriteria Type&#xA;- Jika ada lebih dari 1 page, robot cari mulai dari page paling akhir. Misal jika ada 3 page, robot akan cek mulai dari Page 3" Condition="[dblDataCount &gt; 1]" DisplayName="Cek data showing lebih dari 10" sap:VirtualizedContainerService.HintSize="1162,1427" sap2010:WorkflowViewState.IdRef="If_23">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If.Then>
+                                      <Sequence DisplayName="Get Data Last Page" sap:VirtualizedContainerService.HintSize="741,1234" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="500" DisplayName="Click Last Number Page'" sap:VirtualizedContainerService.HintSize="699,106" sap2010:WorkflowViewState.IdRef="Click_18" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                          <ui:Click.CursorPosition>
+                                            <ui:CursorPosition Position="Center">
+                                              <ui:CursorPosition.OffsetX>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:CursorPosition.OffsetX>
+                                              <ui:CursorPosition.OffsetY>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:CursorPosition.OffsetY>
+                                            </ui:CursorPosition>
+                                          </ui:Click.CursorPosition>
+                                          <ui:Click.Target>
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b32f03d2-7b74-42a7-9e75-104fe4b3123f" InformativeScreenshot="08bd56839b55f066e8250405ca9baf42" Selector="[String.Format(&quot;&lt;html app='chrome.exe' title='CLARIS' /&gt;&lt;webctrl aaname='{0}' parentid='main-menu' tag='SPAN' /&gt;&quot;, dblDataCount)]" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                          </ui:Click.Target>
+                                        </ui:Click>
+                                        <ui:InterruptibleDoWhile DisplayName="Do While - Cek data per page" sap:VirtualizedContainerService.HintSize="699,996" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_3">
+                                          <ui:InterruptibleDoWhile.Body>
+                                            <Sequence DisplayName="Body Cek Data per Page" sap:VirtualizedContainerService.HintSize="663,829" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" DataTable="[dtExtractDataTable]" DisplayName="Extract Structured Data 'All Cases' Pages" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="621,106" sap2010:WorkflowViewState.IdRef="ExtractData_8" MaxNumberOfResults="-1" SimulateClick="True">
+                                                <ui:ExtractData.Target>
+                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7104c7f5-2a6c-44bc-b571-3df54bea9c35" InformativeScreenshot="c66e7c2cf202ce5871e6e7b2bfa6d1be" Selector="&lt;webctrl tag='TABLE' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                </ui:ExtractData.Target>
+                                              </ui:ExtractData>
+                                              <Assign sap2010:Annotation.AnnotationText="Kriteria kolom Type sesuai variabel [Inquiry_Type] di config" DisplayName="Assign -  Cek Baris Tabel All Case Pages" sap:VirtualizedContainerService.HintSize="621,104" sap2010:WorkflowViewState.IdRef="Assign_45">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[intIndexCase]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">[dtExtractDataTable.AsEnumerable.toList.FindIndex(Function(x) in_strInquiryType.contains(x("Type").tostring) And x("Reff No.").tostring.equals(strReffNumber))]</InArgument>
+                                                </Assign.Value>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </Assign>
+                                              <If Condition="[intIndexCase = -1]" DisplayName="Cek hasil pencarian kolom Type " sap:VirtualizedContainerService.HintSize="621,447" sap2010:WorkflowViewState.IdRef="If_22">
+                                                <If.Then>
+                                                  <Sequence DisplayName="Previous Page" sap:VirtualizedContainerService.HintSize="376,298" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="500" DisplayName="Click 'Previous Page'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_19" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                      <ui:Click.CursorPosition>
+                                                        <ui:CursorPosition Position="Center">
+                                                          <ui:CursorPosition.OffsetX>
+                                                            <InArgument x:TypeArguments="x:Int32" />
+                                                          </ui:CursorPosition.OffsetX>
+                                                          <ui:CursorPosition.OffsetY>
+                                                            <InArgument x:TypeArguments="x:Int32" />
+                                                          </ui:CursorPosition.OffsetY>
+                                                        </ui:CursorPosition>
+                                                      </ui:Click.CursorPosition>
+                                                      <ui:Click.Target>
+                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bb08e257-fcbb-4eac-9cd9-f864498d6a5d" InformativeScreenshot="3f3b5c206996c93c6fac176826b845e3" Selector="&lt;webctrl aaname='«' parentid='main-menu' tag='SPAN' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                      </ui:Click.Target>
+                                                    </ui:Click>
+                                                    <Assign DisplayName="Assign - Min Count" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_46">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:Double">[dblDataCount]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:Double">[dblDataCount-1]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                  </Sequence>
+                                                </If.Then>
+                                                <If.Else>
+                                                  <ui:Break DisplayName="Break - Type Ada" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_5" />
+                                                </If.Else>
+                                              </If>
+                                            </Sequence>
+                                          </ui:InterruptibleDoWhile.Body>
+                                          <ui:InterruptibleDoWhile.Condition>
+                                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="dblDataCount &gt; 0" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                                          </ui:InterruptibleDoWhile.Condition>
+                                        </ui:InterruptibleDoWhile>
+                                      </Sequence>
+                                    </If.Then>
+                                    <If.Else>
+                                      <Sequence DisplayName="Get Data First Page" sap:VirtualizedContainerService.HintSize="376,342" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" DataTable="[dtExtractDataTable]" DisplayName="Extract Structured Data 'All Cases' Page" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_9" MaxNumberOfResults="-1" SimulateClick="True">
+                                          <ui:ExtractData.Target>
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7104c7f5-2a6c-44bc-b571-3df54bea9c35" InformativeScreenshot="c66e7c2cf202ce5871e6e7b2bfa6d1be" Selector="&lt;webctrl tag='TABLE' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                          </ui:ExtractData.Target>
+                                        </ui:ExtractData>
+                                        <Assign sap2010:Annotation.AnnotationText="Kriteria kolom Type sesuai variabel [Inquiry_Type] di config" DisplayName="Assign -  Cek Baris Tabel All Case Page" sap:VirtualizedContainerService.HintSize="334,104" sap2010:WorkflowViewState.IdRef="Assign_47">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Int32">[intIndexCase]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Int32">[dtExtractDataTable.AsEnumerable.toList.FindIndex(Function(x) in_strInquiryType.contains(x("Type").tostring) And x("Reff No.").tostring.equals(strReffNumber))]</InArgument>
+                                          </Assign.Value>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </Assign>
+                                      </Sequence>
+                                    </If.Else>
+                                  </If>
+                                  <Switch x:TypeArguments="x:Boolean" DisplayName="Cek hasil pencarian Type" Expression="[intIndexCase = -1]" sap:VirtualizedContainerService.HintSize="1162,269" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+                                    <Assign x:Key="True" DisplayName="Assign - Update Status 'Not Found (CLARIS)' Type Tidak Ada" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_48">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Object">[CurrentRow("Status")]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Object">["Not Found (CLARIS)"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Sequence x:Key="False" DisplayName="Cari Baris Data di Tabel Mesage Item" sap:VirtualizedContainerService.HintSize="1180,2958" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="sd:DataTable" Name="dtMessageItem" />
+                                        <Variable x:TypeArguments="x:Int32" Name="intIndexMsgItem" />
+                                      </Sequence.Variables>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign DisplayName="Assign -  Sum Index Table Cases" sap:VirtualizedContainerService.HintSize="1138,60" sap2010:WorkflowViewState.IdRef="Assign_49">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[intIndexCase]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">[intIndexCase+1]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="Klik baris yang kolom Type nya sesuai kriteria" ClickType="CLICK_SINGLE" DisplayName="Click 'Baris Reff No'" sap:VirtualizedContainerService.HintSize="1138,137" sap2010:WorkflowViewState.IdRef="Click_20" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                        <ui:Click.CursorPosition>
+                                          <ui:CursorPosition Position="Center">
+                                            <ui:CursorPosition.OffsetX>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:CursorPosition.OffsetX>
+                                            <ui:CursorPosition.OffsetY>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:CursorPosition.OffsetY>
+                                          </ui:CursorPosition>
+                                        </ui:Click.CursorPosition>
+                                        <ui:Click.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="73989928-f731-42fd-80f0-9906b4977ced" InformativeScreenshot="47e3b39ab4b6e1c2b600c586ac92e4e9" Selector="[String.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableCol='5' tableRow='{0}' tag='TD' /&gt;&quot;, intIndexCase)]" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                        </ui:Click.Target>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:Click>
+                                      <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" DataTable="[dtMessageItem]" DisplayName="Extract Structured Data 'Message Item'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="1138,106" sap2010:WorkflowViewState.IdRef="ExtractData_10" MaxNumberOfResults="-1" SimulateClick="True">
+                                        <ui:ExtractData.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="30e31a9b-701b-4a04-bfe6-708f12e7cbda" InformativeScreenshot="48dcaa4f737bd8242c111bed2d11ea96" Selector="&lt;webctrl tag='TABLE' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                        </ui:ExtractData.Target>
+                                      </ui:ExtractData>
+                                      <Assign sap2010:Annotation.AnnotationText="Cari Message Item dengan title sesuai variabel [Item_Title] dan type sesuai [Item_Type] di config yang tanggal nya sesuai dengan tanggal running RPA" DisplayName="Assign -  Cek Baris Tabel Message Item" sap:VirtualizedContainerService.HintSize="1138,136" sap2010:WorkflowViewState.IdRef="Assign_50">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[intIndexMsgItem]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">[dtMessageItem.AsEnumerable.toList.FindIndex(Function(x) x("Title").tostring.equals(in_strItemTitle) and x("Type").Tostring.Equals(in_strItemType) and x("Date Time").tostring.contains(Now.ToString("yyyy/MM/dd")))]</InArgument>
+                                        </Assign.Value>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </Assign>
+                                      <If Condition="[intIndexMsgItem = -1]" DisplayName="Apakah ditemukan item sesuai kriteria" sap:VirtualizedContainerService.HintSize="1138,2121" sap2010:WorkflowViewState.IdRef="If_27">
+                                        <If.Then>
+                                          <Assign DisplayName="Assign - Update Status 'Not Found (CLARIS)' Tidak Sesuai Kriteria" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_51">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Object">[CurrentRow("Status")]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Object">["Not Found (CLARIS)"]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Sequence DisplayName="Proses 'Action'" sap:VirtualizedContainerService.HintSize="831,1972" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                            <Sequence.Variables>
+                                              <Variable x:TypeArguments="x:String" Name="strTextAction" />
+                                              <Variable x:TypeArguments="x:Int32" Name="intIndexAction" />
+                                              <Variable x:TypeArguments="x:Boolean" Name="boolKeywordFound" />
+                                            </Sequence.Variables>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[intIndexAction]" DataTable="[dtMessageItem]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="789,1393" sap2010:WorkflowViewState.IdRef="ForEachRow_6">
+                                              <ui:ForEachRow.Body>
+                                                <ActivityAction x:TypeArguments="sd:DataRow">
+                                                  <ActivityAction.Argument>
+                                                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="messageItem" />
+                                                  </ActivityAction.Argument>
+                                                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="755,1273" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                                    <Sequence.Variables>
+                                                      <Variable x:TypeArguments="x:Boolean" Name="boolActionBoxPrint" />
+                                                    </Sequence.Variables>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <Assign DisplayName="Assign - Sum Index Msg Item" sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_52">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:Int32">[intIndexAction]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:Int32">[intIndexAction+1]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                    <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="500" DisplayName="Click 'Action'" sap:VirtualizedContainerService.HintSize="713,106" sap2010:WorkflowViewState.IdRef="Click_21" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                                      <ui:Click.CursorPosition>
+                                                        <ui:CursorPosition Position="Center">
+                                                          <ui:CursorPosition.OffsetX>
+                                                            <InArgument x:TypeArguments="x:Int32" />
+                                                          </ui:CursorPosition.OffsetX>
+                                                          <ui:CursorPosition.OffsetY>
+                                                            <InArgument x:TypeArguments="x:Int32" />
+                                                          </ui:CursorPosition.OffsetY>
+                                                        </ui:CursorPosition>
+                                                      </ui:Click.CursorPosition>
+                                                      <ui:Click.Target>
+                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="73989928-f731-42fd-80f0-9906b4977ced" InformativeScreenshot="47e3b39ab4b6e1c2b600c586ac92e4e9" Selector="[String.Format(&quot;&lt;html app='chrome.exe' title='CLARIS' /&gt;&lt;webctrl tag='I' class='ft-eye' colName='Action' tableCol='9' tableRow='{0}' /&gt;&quot;, intIndexAction)]" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                      </ui:Click.Target>
+                                                    </ui:Click>
+                                                    <ui:UiElementExists DisplayName="Element Exists 'Action Box - Print'" Exists="[boolActionBoxPrint]" sap:VirtualizedContainerService.HintSize="713,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                                                      <ui:UiElementExists.Target>
+                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7dd0cd33-0007-434c-85fe-624883acb29b" InformativeScreenshot="0e248c18120712a42d1f04df9f0a17fb" Selector="&lt;html app='chrome.exe' htmlwindowname='mt*' title='CLARIS' /&gt;&lt;webctrl aaname='PRINT' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                                                      </ui:UiElementExists.Target>
+                                                    </ui:UiElementExists>
+                                                    <If Condition="[boolActionBoxPrint]" DisplayName="Check Print button setelah klik Action" sap:VirtualizedContainerService.HintSize="713,255" sap2010:WorkflowViewState.IdRef="If_24">
+                                                      <If.Then>
+                                                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Pop Up After Click Action (Eyes Icon) - Buutton Print'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_7">
+                                                          <ui:GetValue.Target>
+                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f91a594b-b992-4b67-910d-459efb984abf" InformativeScreenshot="0355d69b11aa5b83002b738d29d676c5" Selector="&lt;html app='chrome.exe' htmlwindowname='mt*' title='CLARIS' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;app-window-layout&amp;gt;div&amp;gt;div&amp;gt;app-detail-mt-window&amp;gt;div&amp;gt;div' idx='3' tag='DIV' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                          </ui:GetValue.Target>
+                                                          <ui:GetValue.Value>
+                                                            <OutArgument x:TypeArguments="x:String">[strTextAction]</OutArgument>
+                                                          </ui:GetValue.Value>
+                                                        </ui:GetValue>
+                                                      </If.Then>
+                                                      <If.Else>
+                                                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Pop Up After Click Action (Eyes Icon)'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_8">
+                                                          <ui:GetValue.Target>
+                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f91a594b-b992-4b67-910d-459efb984abf" InformativeScreenshot="0355d69b11aa5b83002b738d29d676c5" Selector="&lt;html app='chrome.exe' htmlwindowname='mt*' title='CLARIS' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;app-window-layout&amp;gt;div&amp;gt;div&amp;gt;app-detail-mt-window&amp;gt;div&amp;gt;div' tag='DIV' idx='2' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                          </ui:GetValue.Target>
+                                                          <ui:GetValue.Value>
+                                                            <OutArgument x:TypeArguments="x:String">[strTextAction]</OutArgument>
+                                                          </ui:GetValue.Value>
+                                                        </ui:GetValue>
+                                                      </If.Else>
+                                                    </If>
+                                                    <Assign DisplayName="Assign - Text Between Blck 4 &amp; Block 5" sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_53">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:String">[strTextAction]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:String">[Split(Split(strTextAction,"Block 4").Last,"Block 5")(0)]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                    <If sap2010:Annotation.AnnotationText="Pastikan terdapat (Contain) Keyword_Balancing sesuai Config diantara Block 4 dan Block 5" Condition="[strTextAction.Contains(in_strKeywordBalancing)]" DisplayName="Apakah Keyword Balancing ditemukan" sap:VirtualizedContainerService.HintSize="713,394" sap2010:WorkflowViewState.IdRef="If_25">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <If.Then>
+                                                        <Sequence DisplayName="Keyword Founder Ditemukan" sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <Assign DisplayName="Assign - Flag Keyword Found" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_54">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:Boolean">[boolKeywordFound]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_6" />
+                                                        </Sequence>
+                                                      </If.Then>
+                                                      <If.Else>
+                                                        <Assign DisplayName="Assign - Flag Keyword Not Found" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_55">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:Boolean">[boolKeywordFound]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                      </If.Else>
+                                                    </If>
+                                                  </Sequence>
+                                                </ActivityAction>
+                                              </ui:ForEachRow.Body>
+                                            </ui:ForEachRow>
+                                            <If Condition="[boolKeywordFound]" DisplayName="Cek flag Keyword Found" sap:VirtualizedContainerService.HintSize="789,447" sap2010:WorkflowViewState.IdRef="If_26">
+                                              <If.Then>
+                                                <Sequence DisplayName="Update Status Done" sap:VirtualizedContainerService.HintSize="376,298" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Assign DisplayName="Assign - Update Status 'Done (CLARIS)'" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_56">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[CurrentRow("Status")]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">["Done (CLARIS)"]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Close 'Pop Up After Click Action (Eyes Icon)'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_22" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                                    <ui:Click.CursorPosition>
+                                                      <ui:CursorPosition Position="Center">
+                                                        <ui:CursorPosition.OffsetX>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:CursorPosition.OffsetX>
+                                                        <ui:CursorPosition.OffsetY>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:CursorPosition.OffsetY>
+                                                      </ui:CursorPosition>
+                                                    </ui:Click.CursorPosition>
+                                                    <ui:Click.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e48715a1-790c-4170-b461-d7bf3716ca69" InformativeScreenshot="4a4d28731e1a6d63a09d52f129a49fae" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='CLARIS - Google Chrome' /&gt;&lt;ctrl name='CLARIS - Google Chrome' role='pane' /&gt;&lt;ctrl name='Close' role='push button' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                    </ui:Click.Target>
+                                                  </ui:Click>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Assign DisplayName="Assign - Update Status 'Not Found (CLARIS)'" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_57">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Object">[CurrentRow("Status")]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">["Not Found (CLARIS)"]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </If.Else>
+                                      </If>
+                                      <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BACK'" sap:VirtualizedContainerService.HintSize="1138,106" sap2010:WorkflowViewState.IdRef="Click_23" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                        <ui:Click.CursorPosition>
+                                          <ui:CursorPosition Position="Center">
+                                            <ui:CursorPosition.OffsetX>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:CursorPosition.OffsetX>
+                                            <ui:CursorPosition.OffsetY>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:CursorPosition.OffsetY>
+                                          </ui:CursorPosition>
+                                        </ui:Click.CursorPosition>
+                                        <ui:Click.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="24cbca55-0279-40a8-bd04-3d743516b74f" InformativeScreenshot="112c5de18189b39c8fa7f22f206799eb" Selector="&lt;webctrl tag='BUTTON' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                        </ui:Click.Target>
+                                      </ui:Click>
+                                    </Sequence>
+                                  </Switch>
+                                </Sequence>
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1204,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="591,455" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If Condition="[strDataCount  &lt;&gt; &quot;&quot;]" DisplayName="Cek jumlah page" sap:VirtualizedContainerService.HintSize="549,363" sap2010:WorkflowViewState.IdRef="If_21">
+                                        <If.Then>
+                                          <Sequence DisplayName="Data Ditampilkan" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign DisplayName="Assign - Get 'Showing of Data'" sap:VirtualizedContainerService.HintSize="1220,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:Double">[dblDataCount]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:Double">[Math.Ceiling(CInt(Split(strDataCount,"of")(0).Tostring.Trim.Replace("Data",""))\10)]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                            <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="1220,22" sap2010:WorkflowViewState.IdRef="Write_Log_5" LogType="Info" Message="[strXamlName + &quot;: Input Reff Number &quot; + strReffNumber + &quot; |  &quot; + strDataCount + &quot; -&gt; &quot; + dblDataCount.ToString]" ProjectName="[in_strProjectName]" />
+                                            <If sap2010:Annotation.AnnotationText="- Bisa lebih dari 1 kriteria Type&#xA;- Jika ada lebih dari 1 page, robot cari mulai dari page paling akhir. Misal jika ada 3 page, robot akan cek mulai dari Page 3" Condition="[dblDataCount &gt; 10]" DisplayName="Cek data showing lebih dari 10" sap:VirtualizedContainerService.HintSize="1220,176" sap2010:WorkflowViewState.IdRef="If_13">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <If.Then>
+                                                <Sequence DisplayName="Get Data Last Page" sap:VirtualizedContainerService.HintSize="741,1234" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="500" DisplayName="Click Last Number Page'" sap:VirtualizedContainerService.HintSize="699,106" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                    <ui:Click.CursorPosition>
+                                                      <ui:CursorPosition Position="Center">
+                                                        <ui:CursorPosition.OffsetX>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:CursorPosition.OffsetX>
+                                                        <ui:CursorPosition.OffsetY>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:CursorPosition.OffsetY>
+                                                      </ui:CursorPosition>
+                                                    </ui:Click.CursorPosition>
+                                                    <ui:Click.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b32f03d2-7b74-42a7-9e75-104fe4b3123f" InformativeScreenshot="08bd56839b55f066e8250405ca9baf42" Selector="[String.Format(&quot;&lt;html app='chrome.exe' title='CLARIS' /&gt;&lt;webctrl aaname='{0}' parentid='main-menu' tag='SPAN' /&gt;&quot;, dblDataCount)]" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                    </ui:Click.Target>
+                                                  </ui:Click>
+                                                  <ui:InterruptibleDoWhile Condition="[dblDataCount &gt; 0]" DisplayName="Do While - Cek data per page" sap:VirtualizedContainerService.HintSize="699,996" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+                                                    <ui:InterruptibleDoWhile.Body>
+                                                      <Sequence DisplayName="Body Cek Data per Page" sap:VirtualizedContainerService.HintSize="663,829" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" DataTable="[dtExtractDataTable]" DisplayName="Extract Structured Data 'All Cases' Pages" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="621,106" sap2010:WorkflowViewState.IdRef="ExtractData_5" MaxNumberOfResults="-1" SimulateClick="True">
+                                                          <ui:ExtractData.Target>
+                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7104c7f5-2a6c-44bc-b571-3df54bea9c35" InformativeScreenshot="c66e7c2cf202ce5871e6e7b2bfa6d1be" Selector="&lt;webctrl tag='TABLE' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                          </ui:ExtractData.Target>
+                                                        </ui:ExtractData>
+                                                        <Assign sap2010:Annotation.AnnotationText="Kriteria kolom Type sesuai variabel [Inquiry_Type] di config" DisplayName="Assign -  Cek Baris Tabel All Case Pages" sap:VirtualizedContainerService.HintSize="621,104" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:Int32">[intIndexCase]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:Int32">[dtExtractDataTable.AsEnumerable.toList.FindIndex(Function(x) in_strInquiryType.contains(x("Type").tostring) And x("Reff No.").tostring.equals(strReffNumber))]</InArgument>
+                                                          </Assign.Value>
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                        </Assign>
+                                                        <If Condition="[intIndexCase = -1]" DisplayName="Cek hasil pencarian kolom Type " sap:VirtualizedContainerService.HintSize="621,447" sap2010:WorkflowViewState.IdRef="If_12">
+                                                          <If.Then>
+                                                            <Sequence DisplayName="Previous Page" sap:VirtualizedContainerService.HintSize="376,298" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="500" DisplayName="Click 'Previous Page'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                                <ui:Click.CursorPosition>
+                                                                  <ui:CursorPosition Position="Center">
+                                                                    <ui:CursorPosition.OffsetX>
+                                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                                    </ui:CursorPosition.OffsetX>
+                                                                    <ui:CursorPosition.OffsetY>
+                                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                                    </ui:CursorPosition.OffsetY>
+                                                                  </ui:CursorPosition>
+                                                                </ui:Click.CursorPosition>
+                                                                <ui:Click.Target>
+                                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bb08e257-fcbb-4eac-9cd9-f864498d6a5d" InformativeScreenshot="3f3b5c206996c93c6fac176826b845e3" Selector="&lt;webctrl aaname='«' parentid='main-menu' tag='SPAN' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                                </ui:Click.Target>
+                                                              </ui:Click>
+                                                              <Assign DisplayName="Assign - Min Count" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:Double">[dblDataCount]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:Double">[dblDataCount-1]</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                            </Sequence>
+                                                          </If.Then>
+                                                          <If.Else>
+                                                            <ui:Break DisplayName="Break - Type Ada" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_3" />
+                                                          </If.Else>
+                                                        </If>
+                                                      </Sequence>
+                                                    </ui:InterruptibleDoWhile.Body>
+                                                  </ui:InterruptibleDoWhile>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence DisplayName="Get Data First Page" sap:VirtualizedContainerService.HintSize="376,342" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" DataTable="[dtExtractDataTable]" DisplayName="Extract Structured Data 'All Cases' Page" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_6" MaxNumberOfResults="-1" SimulateClick="True">
+                                                    <ui:ExtractData.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7104c7f5-2a6c-44bc-b571-3df54bea9c35" InformativeScreenshot="c66e7c2cf202ce5871e6e7b2bfa6d1be" Selector="&lt;webctrl tag='TABLE' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                    </ui:ExtractData.Target>
+                                                  </ui:ExtractData>
+                                                  <Assign sap2010:Annotation.AnnotationText="Kriteria kolom Type sesuai variabel [Inquiry_Type] di config" DisplayName="Assign -  Cek Baris Tabel All Case Page" sap:VirtualizedContainerService.HintSize="334,104" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Int32">[intIndexCase]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Int32">[dtExtractDataTable.AsEnumerable.toList.FindIndex(Function(x) in_strInquiryType.contains(x("Type").tostring) And x("Reff No.").tostring.equals(strReffNumber))]</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                            <Switch x:TypeArguments="x:Boolean" DisplayName="Cek hasil pencarian Type" Expression="[intIndexCase = -1]" sap:VirtualizedContainerService.HintSize="1220,3167" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                                              <Assign x:Key="True" DisplayName="Assign - Update Status 'Not Found (CLARIS)' Type Tidak Ada" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[CurrentRow("Status")]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Object">["Not Found (CLARIS)"]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Sequence x:Key="False" DisplayName="Cari Baris Data di Tabel Mesage Item" sap:VirtualizedContainerService.HintSize="1180,2958" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                                <Sequence.Variables>
+                                                  <Variable x:TypeArguments="sd:DataTable" Name="dtMessageItem" />
+                                                  <Variable x:TypeArguments="x:Int32" Name="intIndexMsgItem" />
+                                                </Sequence.Variables>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <Assign DisplayName="Assign -  Sum Index Table Cases" sap:VirtualizedContainerService.HintSize="1138,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Int32">[intIndexCase]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Int32">[intIndexCase+1]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="Klik baris yang kolom Type nya sesuai kriteria" ClickType="CLICK_SINGLE" DisplayName="Click 'Baris Reff No'" sap:VirtualizedContainerService.HintSize="1138,137" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                  <ui:Click.CursorPosition>
+                                                    <ui:CursorPosition Position="Center">
+                                                      <ui:CursorPosition.OffsetX>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:CursorPosition.OffsetX>
+                                                      <ui:CursorPosition.OffsetY>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:CursorPosition.OffsetY>
+                                                    </ui:CursorPosition>
+                                                  </ui:Click.CursorPosition>
+                                                  <ui:Click.Target>
+                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="73989928-f731-42fd-80f0-9906b4977ced" InformativeScreenshot="47e3b39ab4b6e1c2b600c586ac92e4e9" Selector="[String.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableCol='5' tableRow='{0}' tag='TD' /&gt;&quot;, intIndexCase)]" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                  </ui:Click.Target>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:Click>
+                                                <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" DataTable="[dtMessageItem]" DisplayName="Extract Structured Data 'Message Item'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="1138,106" sap2010:WorkflowViewState.IdRef="ExtractData_7" MaxNumberOfResults="-1" SimulateClick="True">
+                                                  <ui:ExtractData.Target>
+                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="30e31a9b-701b-4a04-bfe6-708f12e7cbda" InformativeScreenshot="48dcaa4f737bd8242c111bed2d11ea96" Selector="&lt;webctrl tag='TABLE' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                  </ui:ExtractData.Target>
+                                                </ui:ExtractData>
+                                                <Assign sap2010:Annotation.AnnotationText="Cari Message Item dengan title sesuai variabel [Item_Title] dan type sesuai [Item_Type] di config yang tanggal nya sesuai dengan tanggal running RPA" DisplayName="Assign -  Cek Baris Tabel Message Item" sap:VirtualizedContainerService.HintSize="1138,136" sap2010:WorkflowViewState.IdRef="Assign_26">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Int32">[intIndexMsgItem]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Int32">[dtMessageItem.AsEnumerable.toList.FindIndex(Function(x) x("Title").tostring.equals(in_strItemTitle) and x("Type").Tostring.Equals(in_strItemType) and x("Date Time").tostring.contains(Now.ToString("yyyy/MM/dd")))]</InArgument>
+                                                  </Assign.Value>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Assign>
+                                                <If Condition="[intIndexMsgItem = -1]" DisplayName="Apakah ditemukan item sesuai kriteria" sap:VirtualizedContainerService.HintSize="1138,2121" sap2010:WorkflowViewState.IdRef="If_16">
+                                                  <If.Then>
+                                                    <Assign DisplayName="Assign - Update Status 'Not Found (CLARIS)' Tidak Sesuai Kriteria" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_27">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:Object">[CurrentRow("Status")]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:Object">["Not Found (CLARIS)"]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                  </If.Then>
+                                                  <If.Else>
+                                                    <Sequence DisplayName="Proses 'Action'" sap:VirtualizedContainerService.HintSize="831,1972" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                                      <Sequence.Variables>
+                                                        <Variable x:TypeArguments="x:String" Name="strTextAction" />
+                                                        <Variable x:TypeArguments="x:Int32" Name="intIndexAction" />
+                                                        <Variable x:TypeArguments="x:Boolean" Name="boolKeywordFound" />
+                                                      </Sequence.Variables>
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[intIndexAction]" DataTable="[dtMessageItem]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="789,1393" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+                                                        <ui:ForEachRow.Body>
+                                                          <ActivityAction x:TypeArguments="sd:DataRow">
+                                                            <ActivityAction.Argument>
+                                                              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="messageItem" />
+                                                            </ActivityAction.Argument>
+                                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="755,1273" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                                              <Sequence.Variables>
+                                                                <Variable x:TypeArguments="x:Boolean" Name="boolActionBoxPrint" />
+                                                              </Sequence.Variables>
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <Assign DisplayName="Assign - Sum Index Msg Item" sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:Int32">[intIndexAction]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:Int32">[intIndexAction+1]</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="500" DisplayName="Click 'Action'" sap:VirtualizedContainerService.HintSize="713,106" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                                                <ui:Click.CursorPosition>
+                                                                  <ui:CursorPosition Position="Center">
+                                                                    <ui:CursorPosition.OffsetX>
+                                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                                    </ui:CursorPosition.OffsetX>
+                                                                    <ui:CursorPosition.OffsetY>
+                                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                                    </ui:CursorPosition.OffsetY>
+                                                                  </ui:CursorPosition>
+                                                                </ui:Click.CursorPosition>
+                                                                <ui:Click.Target>
+                                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="73989928-f731-42fd-80f0-9906b4977ced" InformativeScreenshot="47e3b39ab4b6e1c2b600c586ac92e4e9" Selector="[String.Format(&quot;&lt;html app='chrome.exe' title='CLARIS' /&gt;&lt;webctrl tag='I' class='ft-eye' colName='Action' tableCol='9' tableRow='{0}' /&gt;&quot;, intIndexAction)]" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                                </ui:Click.Target>
+                                                              </ui:Click>
+                                                              <ui:UiElementExists DisplayName="Element Exists 'Action Box - Print'" Exists="[boolActionBoxPrint]" sap:VirtualizedContainerService.HintSize="713,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                                                                <ui:UiElementExists.Target>
+                                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7dd0cd33-0007-434c-85fe-624883acb29b" InformativeScreenshot="0e248c18120712a42d1f04df9f0a17fb" Selector="&lt;html app='chrome.exe' htmlwindowname='mt*' title='CLARIS' /&gt;&lt;webctrl aaname='PRINT' tag='BUTTON' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+                                                                </ui:UiElementExists.Target>
+                                                              </ui:UiElementExists>
+                                                              <If Condition="[boolActionBoxPrint]" DisplayName="Check Print button setelah klik Action" sap:VirtualizedContainerService.HintSize="713,255" sap2010:WorkflowViewState.IdRef="If_20">
+                                                                <If.Then>
+                                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Pop Up After Click Action (Eyes Icon) - Buutton Print'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_4">
+                                                                    <ui:GetValue.Target>
+                                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f91a594b-b992-4b67-910d-459efb984abf" InformativeScreenshot="0355d69b11aa5b83002b738d29d676c5" Selector="&lt;html app='chrome.exe' htmlwindowname='mt*' title='CLARIS' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;app-window-layout&amp;gt;div&amp;gt;div&amp;gt;app-detail-mt-window&amp;gt;div&amp;gt;div' idx='3' tag='DIV' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                                    </ui:GetValue.Target>
+                                                                    <ui:GetValue.Value>
+                                                                      <OutArgument x:TypeArguments="x:String">[strTextAction]</OutArgument>
+                                                                    </ui:GetValue.Value>
+                                                                  </ui:GetValue>
+                                                                </If.Then>
+                                                                <If.Else>
+                                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Pop Up After Click Action (Eyes Icon)'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_6">
+                                                                    <ui:GetValue.Target>
+                                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f91a594b-b992-4b67-910d-459efb984abf" InformativeScreenshot="0355d69b11aa5b83002b738d29d676c5" Selector="&lt;html app='chrome.exe' htmlwindowname='mt*' title='CLARIS' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;app-window-layout&amp;gt;div&amp;gt;div&amp;gt;app-detail-mt-window&amp;gt;div&amp;gt;div' tag='DIV' idx='2' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                                    </ui:GetValue.Target>
+                                                                    <ui:GetValue.Value>
+                                                                      <OutArgument x:TypeArguments="x:String">[strTextAction]</OutArgument>
+                                                                    </ui:GetValue.Value>
+                                                                  </ui:GetValue>
+                                                                </If.Else>
+                                                              </If>
+                                                              <Assign DisplayName="Assign - Text Between Blck 4 &amp; Block 5" sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[strTextAction]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">[Split(Split(strTextAction,"Block 4").Last,"Block 5")(0)]</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <If sap2010:Annotation.AnnotationText="Pastikan terdapat (Contain) Keyword_Balancing sesuai Config diantara Block 4 dan Block 5" Condition="[strTextAction.Contains(in_strKeywordBalancing)]" DisplayName="Apakah Keyword Balancing ditemukan" sap:VirtualizedContainerService.HintSize="713,394" sap2010:WorkflowViewState.IdRef="If_14">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <If.Then>
+                                                                  <Sequence DisplayName="Keyword Founder Ditemukan" sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <Assign DisplayName="Assign - Flag Keyword Found" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_30">
+                                                                      <Assign.To>
+                                                                        <OutArgument x:TypeArguments="x:Boolean">[boolKeywordFound]</OutArgument>
+                                                                      </Assign.To>
+                                                                      <Assign.Value>
+                                                                        <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                                      </Assign.Value>
+                                                                    </Assign>
+                                                                    <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_4" />
+                                                                  </Sequence>
+                                                                </If.Then>
+                                                                <If.Else>
+                                                                  <Assign DisplayName="Assign - Flag Keyword Not Found" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_31">
+                                                                    <Assign.To>
+                                                                      <OutArgument x:TypeArguments="x:Boolean">[boolKeywordFound]</OutArgument>
+                                                                    </Assign.To>
+                                                                    <Assign.Value>
+                                                                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                                    </Assign.Value>
+                                                                  </Assign>
+                                                                </If.Else>
+                                                              </If>
+                                                            </Sequence>
+                                                          </ActivityAction>
+                                                        </ui:ForEachRow.Body>
+                                                      </ui:ForEachRow>
+                                                      <If Condition="[boolKeywordFound]" DisplayName="Cek flag Keyword Found" sap:VirtualizedContainerService.HintSize="789,447" sap2010:WorkflowViewState.IdRef="If_15">
+                                                        <If.Then>
+                                                          <Sequence DisplayName="Update Status Done" sap:VirtualizedContainerService.HintSize="376,298" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <Assign DisplayName="Assign - Update Status 'Done (CLARIS)'" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_32">
+                                                              <Assign.To>
+                                                                <OutArgument x:TypeArguments="x:Object">[CurrentRow("Status")]</OutArgument>
+                                                              </Assign.To>
+                                                              <Assign.Value>
+                                                                <InArgument x:TypeArguments="x:String">["Done (CLARIS)"]</InArgument>
+                                                              </Assign.Value>
+                                                            </Assign>
+                                                            <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Close 'Pop Up After Click Action (Eyes Icon)'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                                              <ui:Click.CursorPosition>
+                                                                <ui:CursorPosition Position="Center">
+                                                                  <ui:CursorPosition.OffsetX>
+                                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                                  </ui:CursorPosition.OffsetX>
+                                                                  <ui:CursorPosition.OffsetY>
+                                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                                  </ui:CursorPosition.OffsetY>
+                                                                </ui:CursorPosition>
+                                                              </ui:Click.CursorPosition>
+                                                              <ui:Click.Target>
+                                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e48715a1-790c-4170-b461-d7bf3716ca69" InformativeScreenshot="4a4d28731e1a6d63a09d52f129a49fae" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='CLARIS - Google Chrome' /&gt;&lt;ctrl name='CLARIS - Google Chrome' role='pane' /&gt;&lt;ctrl name='Close' role='push button' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                              </ui:Click.Target>
+                                                            </ui:Click>
+                                                          </Sequence>
+                                                        </If.Then>
+                                                        <If.Else>
+                                                          <Assign DisplayName="Assign - Update Status 'Not Found (CLARIS)'" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_33">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:Object">[CurrentRow("Status")]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">["Not Found (CLARIS)"]</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                        </If.Else>
+                                                      </If>
+                                                    </Sequence>
+                                                  </If.Else>
+                                                </If>
+                                                <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BACK'" sap:VirtualizedContainerService.HintSize="1138,106" sap2010:WorkflowViewState.IdRef="Click_17" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                                  <ui:Click.CursorPosition>
+                                                    <ui:CursorPosition Position="Center">
+                                                      <ui:CursorPosition.OffsetX>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:CursorPosition.OffsetX>
+                                                      <ui:CursorPosition.OffsetY>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:CursorPosition.OffsetY>
+                                                    </ui:CursorPosition>
+                                                  </ui:Click.CursorPosition>
+                                                  <ui:Click.Target>
+                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="24cbca55-0279-40a8-bd04-3d743516b74f" InformativeScreenshot="112c5de18189b39c8fa7f22f206799eb" Selector="&lt;webctrl tag='BUTTON' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                                                  </ui:Click.Target>
+                                                </ui:Click>
+                                              </Sequence>
+                                            </Switch>
+                                          </Sequence>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Sequence DisplayName="Data Ttidak Ditampilkan" sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign DisplayName="Assign - Update Status 'Not Found (CLARIS)'" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_43">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:Object">[CurrentRow("Status")]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">["Not Found (CLARIS)"]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                            <xl:Write_Log DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Write_Log_6" LogType="Info" Message="[strXamlName + &quot;: Input Reff Number &quot; + strReffNumber + &quot; | Status  &quot; + CurrentRow(&quot;Status&quot;).ToString]" ProjectName="[in_strProjectName]" />
+                                          </Sequence>
+                                        </If.Else>
+                                      </If>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:CommentOut>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEachRow.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:ForEachRow>
+                        <If Condition="[item = &quot;IR Invest&quot;]" DisplayName="Cek Sheet di file output" sap:VirtualizedContainerService.HintSize="1280,432" sap2010:WorkflowViewState.IdRef="If_19">
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Assign - Update Data dtIrInvest" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="Assign_39">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="sd:DataTable">[in_dtIrInvest]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[in_dtIrInvest.AsEnumerable.Select(Function(x) in_dtIrInvest.Clone.LoadDataRow({
+x("No"),
+x("IR Number"),
+x("Reff Number"),
+If(dtUsed.AsEnumerable.Where(Function(y) y("Reff Number").ToString.Equals(x("Reff Number").tostring)).Select(Function(y) y("Status")).FirstOrDefault.ToString,x("Status"))
+},False)).CopyToDataTable]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <ui:ExcelWriteRange AddHeaders="False" DataTable="[in_dtIrInvest]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="[item]" StartingCell="A2" />
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Assign - Update Data dtIrRejectRefund" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="Assign_40">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="sd:DataTable">[in_dtIrRejectRefund]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[in_dtIrRejectRefund.AsEnumerable.Select(Function(x) in_dtIrRejectRefund.Clone.LoadDataRow({
+x("No"),
+x("TT Number"),
+x("Reff Number"),
+If(dtUsed.AsEnumerable.Where(Function(y) y("Reff Number").ToString.Equals(x("Reff Number").tostring)).Select(Function(y) y("Status")).FirstOrDefault.ToString,x("Status"))
+},False)).CopyToDataTable]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <ui:ExcelWriteRange AddHeaders="False" DataTable="[in_dtIrRejectRefund]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="[item]" StartingCell="A2" />
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                </ui:ForEach>
+              </ActivityAction>
+            </ui:BrowserScope.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:BrowserScope>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
+    <xl:Write_Log DisplayName="Write Log - End" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Write_Log_2" LogType="Info" Message="[strXamlName + &quot;: POL/RPA/FFL Inquiry Data di CLARIS - End&quot;]" ProjectName="[in_strProjectName]" />
+    <ui:LogMessage DisplayName="Log Message - End" sap:VirtualizedContainerService.HintSize="434,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[strXamlName + &quot;: POL/RPA/FFL Inquiry Data di CLARIS - End&quot;]" />
+  </Sequence>
+</Activity>
