@@ -1,0 +1,49 @@
+REF 1.0.0.23 - Up 30 September 2024
+- Penambahan close tab chrome di End Process (Finally) untuk fitur Unattended pada Main.xaml
+
+REF 1.0.0.22 -  Up 31 Juli 2024
+- Penambahan Retry Scope pada semua activity Set Transaction Status di 06_SetTransactionStatus.xaml
+- Update XAS.Reuseable.Package ke 1.0.15 (tambahan Type Into JS)
+- Perapian code template
+
+REF 1.0.0.21 -  Up 31 May 2024
+- Penambahan Changes.txt dan log perubahan di Description Template
+- Penambahan HowToRun.txt untuk dokumentasi cara running RPA secara garis besar
+- Update nama argument in_dictConfigGlobalHandler menjadi io_dictConfigGlobalHandler pada Process.xaml
+- Update parameter looping For Each - Queueitem In Progress menjadi queueItems.Where(Function (q) q.Status.ToString.ToLower.Equals("inprogress")).ToList untuk set Failed queue yang berstatus In Progress pada 08_ClearQueueItems.xaml
+- Hapus folder Reusable
+- Uninstall RPA Reuseable Package 2024 dan Install XAS.Reuseable.Package
+
+REF 1.0.0.18 -  Up 30 April 2024
+- Penambahan parameter ListFileExcludeDuplicate di Config Sheet IT dan validasi untuk exclude hapus file saat proses duplicate dari NAS ke lokal
+- Penambahan parameter ListFileExcludeBackToNAS di Config Sheet IT dan validasi untuk exclude copy file saat proses Back To NAS
+- Penambahan validasi exclude hapus subfolder yang filenya termasuk dalam parameter ListFileExclude
+- Sort Descending urutan subfolder saat proses looping duplicate dan backtonas agar subsubfolder tidak kehapus
+
+REF 1.0.0.17 -  Up 29 Mar 2024
+- notifnotepad.xaml : Update IF cek apakah ada notepad, jika ada baru close
+- 01_InitAllSettings.xaml : Assign robot unattened dari yang sebelumnya menggunakan IF menjadi Assign; Path Config yang sebelumnya dilakukan pengecekan garis miring dengan IF manual menjadi menggunakan Path Combine; ConfigIT yang sebelumnya dibaca dari path master / lokal menjadi dari path RobotSetting; ConfigQueue yang sebelumnya dibaca dari path RobotSetting menjadi dari path master / lokal;
+- 02_ReadTableConfig.xaml : Combine 03_ReadTableEmail.xaml ke dalam 02_ReadTableConfig.xaml; Penambahan TryCatch pada read excel config dengan Try Read Workbook dan Catch Read Excel App Scope
+- 06_KillAllProcesses.xaml : Perubahan looping kill process untuk mencegah adanya process yang tidak terkill
+- 08_ClearQueueItems.xaml : Penghapusan TryCatch dan penambahan validasi clear QueueItems berstatus InProgress
+- 09_AddQueue.xaml : Penambahan Opsi Bulk Add Queue yang otomatis menambahkan reference queue
+- Main.xaml > End Process (Exception) > Finally :  Kill All Process dan UiPathAssistant dipanggil jika robot tidak terkena System Exception atau berjalan normal saja diinstall RPA.Reusable.Package.2024 & hapus NotifNotepad.xaml
+
+REF 1.0.0.17 -  Up 29 Feb 2024
+- Update IF cek apakah ada notepad, jika ada baru close (notifnotepad.xaml)
+
+REF 1.0.0.16 - Up 31 Jan 2024
+- Update urutan Global Handler terlebih dahulu sebelum Kill All Process (Main.xaml)
+- Update timeout close notepad menjadi 3 detik (notifnotepad.xaml)
+
+Name: BCAREF_2023
+Version: 1.0.0.15
+Penambahan ClearQueueItems untuk queue yang statusnya In Progress
+
+Name: BCAREF_2023
+Version: 1.0.0.14
+Update penggunaan activity Get Xaml File Name untuk penulisan nama file xaml pada log
+
+Name: BCAREF_2023
+Version: 1.0.0.13
+Update format log pada Log Message dan Writelog

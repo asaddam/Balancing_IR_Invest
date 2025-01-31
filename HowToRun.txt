@@ -1,0 +1,29 @@
+Pastikan Folder : ...
+
+Pastikan File : ...
+
+Pastikan Aplikasi : ...
+ 
+Note Tambahan : ...
+
+
+
+Contoh :
+Pastikan Folder : semua folder bisa diakses
+Path_INPUT
+Path_IN PROGRESS
+Path_DONE
+Path_Laporan CEAP
+Path_Tabel NPL
+Path_MASTER
+Path_BO CCOS
+Path_EMPLOYEE
+
+Pastikan File : semua file master dan input bisa diakses
+Path_MASTER >>> Master Email.xlsx, Master Cabang.xlsx
+Path_EMPLOYEE >>> IDM_EMPLOYEE.csv
+Path_INPUT/Path_IN PROGRESS >>> DBKK+KKK_[MMMM][YYYY].csv
+
+Pastikan Aplikasi : tidak ada
+ 
+Note Tambahan : bisa run dari to do atau lanjut dari inprogress
